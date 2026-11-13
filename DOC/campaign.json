@@ -1,0 +1,178 @@
+{
+  "title": "WaferGuard: engineering the decision to trust AI",
+  "audience": "Engineering managers hiring for applied ML, ML platform, data engineering, and cloud roles",
+  "asOf": "2026-11-13",
+  "media": {"videoUrl": null, "vercelUrl": null},
+  "days": [
+    {
+      "day": 1,
+      "title": "Start with the cost of a wrong decision",
+      "theme": "Business framing",
+      "business": "In a wafer-inspection workflow, a missed defect and an unnecessary review create different problems. A useful ML pilot must make those tradeoffs visible before anyone discusses automation. WaferGuard explores that decision using public wafer-pattern data; it does not measure factory yield or production savings.",
+      "technical": "The local pipeline audits WM-811K, trains pattern classifiers, calibrates confidence, and evaluates a frozen routing policy. The frozen test candidate achieved macro-F1 0.7265 and Scratch recall 55.6%; its offline policy falsely accepted four Scratch cases.",
+      "decision": "Block model promotion and keep operational automatic acceptance disabled. These results do not justify a release.",
+      "architecture": "Separate prediction evidence, policy evaluation, and reviewer authorization. A model score must not itself authorize a quality disposition. The cloud review workflow remains a target design.",
+      "question": "When reviewing an ML pilot, which failure would make you stop a release even if overall accuracy looked strong?",
+      "evidence": ["reports/gates/gate_4.md", "DOC/adr/0003-review-and-model-promotion.md"],
+      "visual": "A decision flow: prediction → policy → review or blocked release. Mark cloud components as planned."
+    },
+    {
+      "day": 2,
+      "title": "Count usable evidence before counting training rows",
+      "theme": "Data engineering",
+      "business": "A large dataset can create a false sense of readiness. Before investing in training, a team needs to know how much of the data has usable labels and where provenance or consistency is uncertain.",
+      "technical": "The source audit counted 811,457 maps: 172,950 labeled and 638,507 unlabeled. It also found 114,858 duplicate map rows and 14 conflicting-label groups. Those are quality measurements, not detection results.",
+      "decision": "Exclude unlabeled records from supervised training and quarantine contradictory groups instead of inventing labels or resolving disagreements by a silent vote.",
+      "architecture": "Preserve source identity and acquisition receipts separately from versioned derived data. Publish aggregate evidence and hashes while keeping raw maps and row-level artifacts outside Git.",
+      "question": "What is the first data-quality result you want to see before approving a training budget?",
+      "evidence": ["DOC/data_card.md", "DOC/data_rights_review.md", "reports/gates/gate_1.md"],
+      "visual": "An explicitly labeled count breakdown: total, labeled, and unlabeled records. Do not use stock wafer images as dataset evidence."
+    },
+    {
+      "day": 3,
+      "title": "A clean split is part of the product claim",
+      "theme": "Evaluation integrity",
+      "business": "An evaluation can overstate value when training and test sets contain versions of the same example. That can lead a team to fund a system whose apparent performance depends on familiarity with the benchmark.",
+      "technical": "The source train/test annotations shared 3,158 exact map groups. WaferGuard rebuilt the benchmark using connected lot and duplicate relationships, including rotations and reflections. The final cohort contains 169,659 consistent representatives across four splits.",
+      "decision": "Use the audited splits-v2 benchmark rather than the original source partition. Keep duplicate-copy membership so excluded rows cannot hide cross-split relationships.",
+      "architecture": "Construct identity components before assigning partitions. Store immutable split manifests, then run a separate audit over row, lot, source-map, encoded-map, and component identities. This does not rule out every approximate near-duplicate.",
+      "question": "Does your evaluation review ask how examples are related, or only how many rows each split contains?",
+      "evidence": ["DOC/split_feasibility.md", "DOC/benchmark.md", "reports/data/split-audit.json"],
+      "visual": "A component diagram showing related rows staying together. Label it as a schematic, not an actual wafer map."
+    },
+    {
+      "day": 4,
+      "title": "Preprocessing can change what counts as a duplicate",
+      "theme": "Data engineering",
+      "business": "A model sees transformed inputs. If an audit checks only source files, it can miss collisions introduced by the production representation and weaken the meaning of a test result.",
+      "technical": "WaferGuard encodes categorical die states into a 64×64 representation using nearest-neighbor sampling and outside-wafer padding. The encoded-input audit found nine additional duplicate records beyond the preliminary original-grid-only benchmark.",
+      "decision": "Replace the preliminary benchmark with the encoded-input-aware version. Treat downsampling as a pilot choice: small structures can be lost, and a new representation requires a new audit.",
+      "architecture": "Include both source and encoded identities in the grouping graph. Verify processed-array and split hashes before loading training records; preserve native originals separately.",
+      "question": "Which transformations in your pipeline could make two distinct source records indistinguishable to a model?",
+      "evidence": ["DOC/benchmark.md", "DOC/adr/0004-preprocessing-and-split-contract.md", "src/waferguard/data/dataset.py"],
+      "visual": "A categorical-grid transformation schematic with a clear warning that resizing may erase small features."
+    },
+    {
+      "day": 5,
+      "title": "A stronger average can hide a failed defect class",
+      "theme": "Model selection",
+      "business": "An inspection tool needs to detect the patterns that matter to its workflow. Choosing a model on an aggregate score alone can hide failures in a rare class that drives the review decision.",
+      "technical": "At Gate 3, validation macro-F1 rose from 0.1018 for the majority baseline to 0.7166 for the spatial-feature random forest and 0.7707 for the compact CNN. That CNN still missed all 117 validation Scratch cases. These are historical validation results, not the final test candidate.",
+      "decision": "Do not promote the best aggregate baseline. Investigate minority-class performance and introduce a Scratch-recall selection constraint before evaluating a later candidate.",
+      "architecture": "Keep simple baselines, per-class metrics, confusion matrices, configuration, and experiment receipts together. Model selection needs an inspectable evidence bundle.",
+      "question": "Would your model-selection process catch a complete miss on one class when the headline metric improves?",
+      "evidence": ["reports/gates/gate_3.md", "DOC/model_card_gate3.md", "reports/figures/gate3-v1/model-comparison.png"],
+      "visual": "Use the committed Gate 3 comparison plot and explicitly label it validation-only."
+    },
+    {
+      "day": 6,
+      "title": "Keep the experiments that did not work",
+      "theme": "Model selection",
+      "business": "A hiring manager needs to see how an engineer handles weak results, not only the final chart. Preserving failed experiments makes the next investment decision easier to assess.",
+      "technical": "Gate 4 compared weighting, replacement sampling, augmentation, and a lightweight architecture. None of the four initial experiments met the 60% validation Scratch-recall selection gate. A stronger-weighting refinement also fell short. A later balanced-sampling refinement selected a checkpoint with validation Scratch recall 75.2% and macro-F1 0.7881.",
+      "decision": "Preserve the failed runs and select the later checkpoint using validation evidence. Do not describe the combined sampling-and-augmentation remedy as proof of one intervention's causal effect.",
+      "architecture": "Use distinct versioned experiment directories and stored histories. Separate checkpoint selection from calibration and frozen test evaluation.",
+      "question": "What evidence makes an experiment history useful enough for another engineer to continue the work?",
+      "evidence": ["reports/gates/gate_4.md", "reports/metrics/gate4-balanced-v1/result.json", "experiments/README.md"],
+      "visual": "An experiment timeline showing failed selection gates alongside the validation-selected candidate."
+    },
+    {
+      "day": 7,
+      "title": "Confidence needs its own evaluation",
+      "theme": "Uncertainty",
+      "business": "If confidence influences which cases receive human attention, confidence quality becomes part of workflow design. A confident prediction is still a prediction, and average calibration can hide a weak subgroup.",
+      "technical": "Temperature scaling was fitted on a separate calibration partition of 17,025 records. Overall validation expected calibration error improved from about 0.0295 to 0.0145. On the frozen test, predicted-Scratch conditional ECE was about 0.5156 despite overall ECE of about 0.0177.",
+      "decision": "Report conditional diagnostics alongside global calibration. The attractive overall number does not establish reliable confidence for Scratch predictions, and temperature scaling does not change the predicted class.",
+      "architecture": "Keep training, validation, calibration, and test roles separate. Version the calibration identity with model and policy evidence so a confidence score can be traced to its fitted transform.",
+      "question": "If confidence drives a review queue, do you inspect calibration for the classes that create the most operational risk?",
+      "evidence": ["DOC/uncertainty_results.md", "reports/metrics/gate4-final/calibration.json", "reports/metrics/gate4-final/diagnostics.json"],
+      "visual": "Use the measured recall/calibration plot; pair overall ECE with the predicted-Scratch conditional result."
+    },
+    {
+      "day": 8,
+      "title": "Review coverage is not a savings claim",
+      "theme": "Release decisions",
+      "business": "Routing fewer cases to humans sounds attractive, but coverage is valuable only if the accepted cases meet the workflow's error requirements. An offline routing calculation cannot establish actual labor savings.",
+      "technical": "The frozen candidate policy required confidence at least 0.94, a margin of at least 0.20, no training-distance OOD flag, and mandatory review for predicted Scratch or Near-full. On test it would have accepted 10,520 of 16,936 cases, with 88 errors, including four true Scratch cases.",
+      "decision": "Keep operational automatic acceptance disabled. Reviewing every predicted critical class does not catch critical examples that the model labels as something else. The offline 62.1% coverage is not an achieved reduction in review workload.",
+      "architecture": "Apply deterministic policy after prediction and retain a release gate above both. Evaluate false accepts using true labels during qualification, rather than relying on predicted labels alone.",
+      "question": "Which error breakdown would you require before treating abstention coverage as a business benefit?",
+      "evidence": ["reports/metrics/gate4-final/test.json", "reports/metrics/gate4-final/qualification.json", "configs/approval_policy.yaml"],
+      "visual": "A routing funnel labeled offline counterfactual, with the four critical false accepts visible."
+    },
+    {
+      "day": 9,
+      "title": "A failed release can be an engineering result",
+      "theme": "Release decisions",
+      "business": "A release process earns its place when it can stop an attractive demo from becoming an unsupported operational claim. WaferGuard's current outcome is a documented hold, not a production success story.",
+      "technical": "The frozen test missed the declared macro-F1 and Scratch-recall criteria and produced four critical false accepts. The recorded 70 passing Python implementation tests do not overturn that result. The test set has now been observed.",
+      "decision": "Block promotion, preserve the failure, and require review before further modeling. Do not tune thresholds on the observed test or relabel it untouched. Future modeling needs an explicitly reviewed evaluation protocol.",
+      "architecture": "Store a machine-readable qualification decision. The draft inference loader rejects an unqualified manifest before loading weights, and the global acceptance configuration remains disabled. This is local enforcement, not a verified live service.",
+      "question": "Can your release machinery represent a useful experiment that is still unqualified for deployment?",
+      "evidence": ["reports/gates/gate_4.md", "reports/metrics/gate4-final/qualification.json", "src/waferguard/inference/predict.py"],
+      "visual": "An evidence checklist with classification FAIL, critical false accepts FAIL, and promotion BLOCKED."
+    },
+    {
+      "day": 10,
+      "title": "A passing stress test has a boundary",
+      "theme": "Uncertainty",
+      "business": "A robustness claim should help an operator understand where protection ends. A detector that catches obvious nonsense may still miss smaller changes in otherwise familiar inputs.",
+      "technical": "A training-feature-distance guard flagged all 256 engineered random grids in a limited stress check. It flagged none of 256 maps with 5% die-state flips. The candidate routed 41.8% of the altered maps to review through its combined policy. No labels were invented for the synthetic or altered inputs.",
+      "decision": "Publish both findings and limit the claim to the tested conditions. Do not call the guard a general corruption detector or assign detection accuracy to unlabeled altered inputs.",
+      "architecture": "Keep input-contract validation separate from statistical OOD checks and policy routing. Each control has a different purpose and needs separate evidence.",
+      "question": "What nearby failure case would you test after a detector passes an obvious out-of-distribution example?",
+      "evidence": ["reports/metrics/gate4-final/stress.json", "DOC/threat_model.md", "tests/security/test_ingestion.py"],
+      "visual": "Two measured outcomes: random grids 256/256 flagged; mild corruption 0/256 flagged. Label both engineered stress checks."
+    },
+    {
+      "day": 11,
+      "title": "Human review needs a state model",
+      "theme": "Architecture",
+      "business": "A review button is useful only if the resulting decision belongs to the right case and authorized reviewer. Duplicate clicks, stale screens, and delayed callbacks can otherwise create conflicting outcomes.",
+      "technical": "WaferGuard has draft API and review modules, with six preliminary review tests included in the recorded 70-test run. Gate 5 is not passed, and there is no live reviewer service. Restart durability, callback reconciliation, and end-to-end authorization still need verification.",
+      "decision": "Keep model output separate from reviewer authority. Require current versions, permission checks, single-use unexpired decisions, and conflict handling before treating the workflow as complete.",
+      "architecture": "The target uses Cognito identity, conditional DynamoDB state/audit/outbox writes, and a Step Functions Standard callback workflow with tokens held server-side. These cloud services remain planned, not deployed.",
+      "question": "What happens in your review workflow if the same case is approved twice from two browser tabs?",
+      "evidence": ["DOC/adr/0003-review-and-model-promotion.md", "DOC/architecture.md", "tests/security/test_review.py"],
+      "visual": "A planned sequence for authorization, conditional transition, audit/outbox, and callback reconciliation."
+    },
+    {
+      "day": 12,
+      "title": "Show the boundary between authored and operated",
+      "theme": "Architecture",
+      "business": "A portfolio architecture should show what an engineer can defend today and what still needs operational evidence. A diagram alone cannot establish cost, reliability, or deployment readiness.",
+      "technical": "The authored CDK foundation defines private versioned S3 storage, access logging, retention, and budget warnings in us-east-2. The full application stack is not implemented or deployed. Live latency, cloud costs, authentication behavior, and rollback remain unmeasured.",
+      "decision": "Review the failed model gate and choose the next scope before deployment. Resolve the recorded tooling advisory, confirm the budget recipient, and review the infrastructure diff. Budget alerts are warnings, not spending caps.",
+      "architecture": "Keep the foundation diagram separate from the target application: CloudFront delivery, Cognito, API Gateway, Lambda, DynamoDB, Step Functions, and monitoring. Require deployment and teardown evidence before making operational claims.",
+      "question": "When reviewing a cloud portfolio project, which evidence helps you distinguish a design from an operated system?",
+      "evidence": ["DOC/PROJECT_STATUS_AND_AWS_PLAN.md", "DOC/deployment.md", "reports/gates/gate_0.md"],
+      "visual": "Use the two committed architecture diagrams with explicit authored-foundation and future-target labels."
+    }
+  ],
+  "carousels": [
+    {"title": "What a wafer ML pilot must prove", "days": [1, 5, 9], "slides": ["Business question: when should a prediction influence inspection review?", "Data scope: public WM-811K patterns, no factory deployment or savings measurement.", "Baseline warning: Gate 3 CNN validation macro-F1 0.7707, Scratch recall zero.", "Frozen Gate 4 test: macro-F1 0.7265, Scratch recall 55.6%, four critical false accepts.", "Decision: promotion blocked; operational automatic acceptance disabled.", "Hiring discussion: separate attractive scores, error consequences, and release authority."]},
+    {"title": "Leakage checks before model selection", "days": [2, 3, 4], "slides": ["Business question: would performance survive genuinely different examples?", "Audit source labels, contradictions, and duplicate relationships.", "Find 3,158 exact map groups shared by source train/test.", "Group lots, originals, rotations/reflections, and encoded identities before splitting.", "Encoding reveals nine additional duplicate records; final cohort is 169,659 representatives.", "Boundary: exact/D4 checks do not exclude all approximate near-duplicates. Link the audit."]},
+    {"title": "Confidence is a workflow input", "days": [7, 8, 10], "slides": ["Business question: which cases can safely receive less human attention?", "Fit temperature on calibration data; choose routing on validation.", "Global test ECE 0.0177 coexists with predicted-Scratch conditional ECE 0.5156.", "Offline coverage 62.1% still includes four critical false accepts; no achieved labor savings.", "Random-grid stress passes, but 5% die-state corruption is not flagged by the distance guard.", "Decision: keep acceptance disabled and communicate the limits of every control."]},
+    {"title": "From evidence to a planned cloud workflow", "days": [9, 11, 12], "slides": ["Business question: who can authorize a disposition, and what evidence supports it?", "Local now: audited data, measured experiments, failed qualification, and draft review code.", "Authored foundation: private versioned S3, logging, retention, and budget warnings.", "Target only: Cognito → API Gateway/Lambda → DynamoDB and Step Functions review.", "Review correctness needs current versions, scoped authority, single-use decisions, and reconciliation.", "Next gate: review scope, finish workflow verification, then review deployment evidence. No live AWS app claim."]}
+  ],
+  "video": {
+    "title": "90-second project walkthrough — script, not an existing recording",
+    "targetSeconds": 90,
+    "segments": [
+      {"time": "0–15s", "visual": "Readable title and business question", "voiceover": "A wafer-inspection model can look promising while missing the defect pattern that matters. WaferGuard asks a practical question: what evidence should a team require before a prediction influences a review decision?"},
+      {"time": "15–30s", "visual": "Dataset counts and split audit", "voiceover": "I started with public WM-811K data: more than eight hundred thousand maps. I audited labels, contradictions, and duplicates, then built partitions that keep related lots and original or encoded map identities together."},
+      {"time": "30–45s", "visual": "Historical Gate 3 plot, validation label visible", "voiceover": "The first CNN beat simpler baselines on validation macro-F1 but missed every validation Scratch case. That changed model selection. I preserved failed experiments and selected a later candidate with an explicit minority-class constraint."},
+      {"time": "45–60s", "visual": "Calibration plot, then frozen test results", "voiceover": "Calibration and validation had separate roles. After freezing the candidate and routing policy, the test still showed Scratch recall of fifty-five point six percent and four critical false accepts. The release gate failed."},
+      {"time": "60–75s", "visual": "Promotion-blocked state beside target architecture", "voiceover": "The decision was to block promotion and keep automatic acceptance disabled. The target architecture separates predictions, review policy, and authorization. AWS application services are planned; the foundation is authored, and the review API remains a draft."},
+      {"time": "75–90s", "visual": "Repository, gate report, and next decision", "voiceover": "This project demonstrates data auditing, controlled evaluation, and explicit release decisions. It does not claim factory savings or a deployed inspection system. The repository includes the evidence and the next review gate. That is the work I would want a hiring team to inspect."}
+    ]
+  },
+  "caseStudy": {
+    "title": "An ML inspection pilot that did not qualify for release",
+    "business": "Explore whether public wafer-pattern classification can support a review workflow, while making critical misses and review errors visible. Production yield, customer impact, throughput, and savings were not measured.",
+    "work": "Audited source provenance and data quality; built encoded-input-aware grouped splits; compared majority, random-forest, and CNN baselines; ran imbalance experiments; calibrated on a dedicated split; froze and tested a candidate routing policy.",
+    "result": "Gate 4 test macro-F1 0.7265, Scratch recall 55.6%, Scratch precision 9.9%, and four critical false accepts. Promotion blocked; operational automatic acceptance disabled. Tests establish bounded implementation behavior, not model qualification.",
+    "architecture": "Local evidence pipeline and authored S3/budget foundation. Planned cloud application separates model evidence, deterministic routing, identity, case state, human authority, and audit. Draft review modules are not a completed or deployed service.",
+    "next": "Review the failed gate, choose a manual-review-only research scope or a newly reviewed modeling protocol, finish review correctness, then separately validate infrastructure, deployment, costs, and teardown. Do not tune on the observed test."
+  }
+}

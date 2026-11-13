@@ -5,6 +5,14 @@ calibrated computer vision, AWS MLOps, and auditable human review.
 
 **Owner:** WaferGuard contributors · **Region:** `us-east-2` · **CLI profile:** `awsnew`
 
+[Project website](https://manisa504.github.io/waferguard-ai/DOC/) ·
+[Campaign studio](https://manisa504.github.io/waferguard-ai/DOC/campaign.html) ·
+[Copyable Hark campaign brief](DOC/HARK_CAMPAIGN.md).
+
+The campaign includes 12 daily post drafts, four carousel outlines, a 90-second video
+script, and a case-study brief. The actual video and Vercel URL are pending. The static
+portfolio is separate from the research application's AWS deployment and model release.
+
 ## Current state
 
 Gate 4 imbalance/calibration/robustness analysis is complete, but **model promotion is
@@ -44,8 +52,8 @@ Use only the documented source; run deserialization in a resource-limited enviro
 without credentials. Restricted pickle loading is defense in depth, not a sandbox.
 
 `pytest` uses explicitly synthetic fixtures for contracts and security checks.
-It does not download data or establish detection performance. CI is authored but has
-not run on GitHub. Dependency locks are included; dependency audit limitations are
+It does not download data or establish detection performance. The initial GitHub
+Project checks run passed. Dependency locks are included; dependency audit limitations are
 recorded in [Gate 0](reports/gates/gate_0.md).
 
 ## Gate 2 benchmark
@@ -88,7 +96,7 @@ make check-ml
 
 Training artifacts stay ignored under `artifacts/`; completed run receipts verify their
 hashes. Linux ML installation uses PyTorch's CPU index. No GPU or cloud rental is used.
-The CI definition includes a small synthetic ML-contract job; hosted execution is pending.
+The CI definition includes a small synthetic ML-contract job; the initial hosted run passed.
 
 ## Review and next steps
 

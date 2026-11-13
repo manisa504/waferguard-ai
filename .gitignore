@@ -23,4 +23,5 @@ coverage.xml
 *.npy
 *.npz
 artifacts/
+.public-site/
 *.joblib
