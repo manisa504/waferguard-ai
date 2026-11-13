@@ -1,4 +1,4 @@
-"""Render the portable Hark brief from the same content used by the campaign page."""
+"""Render the portable campaign brief from the same content used by the campaign page."""
 import json
 from pathlib import Path
 
@@ -6,11 +6,11 @@ ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / "DOC/campaign.json").read_text())
 repo = "https://github.com/manisa504/waferguard-ai/blob/main/"
 lines = [
-    "# WaferGuard — Hark campaign handoff",
+    "# WaferGuard — Campaign brief",
     "",
     "Evidence snapshot: November 13, 2026. Audience: " + data["audience"] + ".",
     "",
-    "## Instructions for Hark",
+    "## Editorial guidance",
     "",
     "Prepare this as a 12-day LinkedIn campaign for review. Do not publish or schedule "
     "until the account owner confirms the LinkedIn account, start date, posting timezone, "
@@ -90,5 +90,5 @@ lines.extend([
     "- [Current model card](" + repo + "DOC/model_card.md)",
     "- [AWS plan](" + repo + "DOC/PROJECT_STATUS_AND_AWS_PLAN.md)", "",
 ])
-(ROOT / "DOC/HARK_CAMPAIGN.md").write_text("\n".join(lines))
+(ROOT / "DOC/CAMPAIGN_BRIEF.md").write_text("\n".join(lines))
 print("Rendered 12 posts, four carousel outlines, video script, and case-study brief.")

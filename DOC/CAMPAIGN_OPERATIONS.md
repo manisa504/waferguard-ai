@@ -33,7 +33,7 @@ claims match its actual scope. Update the overview's pending section at the same
 
 No usable Higgsfield credential was supplied; no Higgsfield generation was attempted.
 Keep provider credentials server-side or in ignored local environment configuration.
-Never put a provider key in campaign JSON, HTML, Git, or the Hark brief. Generated
+Never put a provider key in campaign JSON, HTML, Git, or the campaign brief. Generated
 decorative media must not be presented as real benchmark examples or model evidence.
 
 ## Publication
@@ -46,13 +46,13 @@ redirect. It does not upload raw data, models, source runtime, or AWS configurat
 Hosting follows [GitHub's custom Pages workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 This adds no AWS resources or LinkedIn integration. Existing project CI remains separate.
 
-## Hark handoff
+## Campaign brief
 
-The page copies `HARK_CAMPAIGN.md`, including all posts, sources, production notes,
+The page copies `CAMPAIGN_BRIEF.md`, including all posts, sources, production notes,
 carousels, video script, case study, and approval boundaries. Clipboard access requires
 browser permission and a secure context; a Markdown download remains available.
 
-Confirm account, dates, timezone, cadence, and final wording before Hark publishes.
+Confirm account, dates, timezone, cadence, and final wording before publication.
 The current work does not post or schedule anything on LinkedIn. Do not imply that an
 unavailable Clarity skill was applied: it was searched for but not installed. The copy
 instead follows the requested business-first sequence and plain-language requirements.

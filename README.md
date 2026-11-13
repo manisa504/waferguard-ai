@@ -7,7 +7,7 @@ calibrated computer vision, AWS MLOps, and auditable human review.
 
 [Project website](https://manisa504.github.io/waferguard-ai/DOC/) ·
 [Campaign studio](https://manisa504.github.io/waferguard-ai/DOC/campaign.html) ·
-[Copyable Hark campaign brief](DOC/HARK_CAMPAIGN.md).
+[Downloadable campaign brief](DOC/CAMPAIGN_BRIEF.md).
 
 The campaign includes 12 daily post drafts, four carousel outlines, a 90-second video
 script, and a case-study brief. The actual video and Vercel URL are pending. The static

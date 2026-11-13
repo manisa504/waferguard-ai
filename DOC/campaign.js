@@ -18,7 +18,7 @@ async function copy(text, button) {
     await navigator.clipboard.writeText(text);
     const label = button.textContent;
     button.textContent = 'Copied';
-    $('feedback').textContent = 'Copied. Review the evidence and publication details before handing this to Hark.';
+    $('feedback').textContent = 'Copied. Review the evidence and publication details before publication.';
     setTimeout(() => { button.textContent = label; }, 2000);
   } catch {
     $('feedback').textContent = 'Clipboard access is unavailable. Download the Markdown brief, or select and copy the visible text.';
@@ -101,7 +101,7 @@ async function main() {
   }
   media(data.media);
   for (const id of ['copy-brief', 'copy-bottom']) $(id).addEventListener('click', async () => {
-    try { const response = await fetch('HARK_CAMPAIGN.md'); if (!response.ok) throw new Error(); await copy(await response.text(), $(id)); }
+    try { const response = await fetch('CAMPAIGN_BRIEF.md'); if (!response.ok) throw new Error(); await copy(await response.text(), $(id)); }
     catch { $('feedback').textContent = 'The brief could not be loaded. Use the download link or repository copy.'; }
   });
   if (location.hash.startsWith('#day-')) document.getElementById(location.hash.slice(1))?.scrollIntoView();

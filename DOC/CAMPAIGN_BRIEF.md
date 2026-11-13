@@ -1,8 +1,8 @@
-# WaferGuard — Hark campaign handoff
+# WaferGuard — Campaign brief
 
 Evidence snapshot: November 13, 2026. Audience: Engineering managers hiring for applied ML, ML platform, data engineering, and cloud roles.
 
-## Instructions for Hark
+## Editorial guidance
 
 Prepare this as a 12-day LinkedIn campaign for review. Do not publish or schedule until the account owner confirms the LinkedIn account, start date, posting timezone, cadence, and final text. Day numbers are relative sequence positions, not dates. This document does not grant account access or publishing permission.
 

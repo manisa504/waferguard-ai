@@ -27,7 +27,7 @@ jobs:
       - name: Render portable campaign brief
         run: |
           python3 scripts/build_campaign.py
-          git diff --exit-code -- DOC/HARK_CAMPAIGN.md
+          git diff --exit-code -- DOC/CAMPAIGN_BRIEF.md
       - name: Package only public pages and evidence
         run: python3 scripts/build_public_site.py
       - uses: actions/configure-pages@v5
