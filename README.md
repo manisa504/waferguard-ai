@@ -7,6 +7,7 @@ calibrated computer vision, AWS MLOps, and auditable human review.
 
 [Project website](https://manisa504.github.io/waferguard-ai/DOC/) ·
 [Campaign studio](https://manisa504.github.io/waferguard-ai/DOC/campaign.html) ·
+[High-level architecture](https://manisa504.github.io/waferguard-ai/DOC/architecture.html) ·
 [Downloadable campaign brief](DOC/CAMPAIGN_BRIEF.md).
 
 The campaign includes 12 daily post drafts, four carousel outlines, a 90-second video

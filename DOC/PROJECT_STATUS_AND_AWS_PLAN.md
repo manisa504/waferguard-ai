@@ -39,8 +39,9 @@ measurement, operational fault test or production validation is complete.
 
 Current CDK and scripts/deploy.sh cover only three private/versioned S3 buckets, access
 logging and budget warning definitions. They do not deploy the full application. A complete
-budget-alert email address is still needed before budget deployment. CI is authored locally;
-no GitHub publication or hosted CI success is claimed.
+budget-alert email address is still needed before budget deployment. Source is now public
+on GitHub, hosted project checks have passed, and the static portfolio and campaign pages
+are on GitHub Pages. This public documentation hosting does not deploy the AWS application.
 
 ## Target architecture — proposed, not deployed
 
@@ -91,7 +92,8 @@ CloudFront is global; regional application/data services remain in us-east-2.
 7. Measure live authentication, inference latency, review pause/resume, fault behavior,
    model rollback, actual cost and teardown. Record gate evidence before portfolio release.
 
-Existing diagram: [architecture.drawio](architecture.drawio), with Foundation and Target tabs.
+[High-level diagram](architecture.html): the first draw.io tab shows the target user flow;
+the second shows the authored foundation. [Editable source](architecture.drawio).
 See [Gate 4 report](../reports/gates/gate_4.md) and [model card](model_card.md).
 
 Implementation references: [Python Lambda containers](https://docs.aws.amazon.com/lambda/latest/dg/python-image.html),
