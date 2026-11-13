@@ -1,0 +1,45 @@
+name: Project checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.10.12'
+      - run: uv sync --extra dev --frozen
+      - run: uv run --frozen ruff check .
+      - run: uv run --frozen pytest -q
+      - name: Keep raw datasets and credentials out of version control
+        run: python scripts/check_tracked_files.py
+  infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: infrastructure/cdk/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: infrastructure/cdk
+      - run: npm test
+        working-directory: infrastructure/cdk
+      - run: npm run synth
+        working-directory: infrastructure/cdk
+
+  ml-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.10.12'
+      - run: uv sync --extra dev --extra ml --frozen
+      - run: uv run --frozen --extra dev --extra ml pytest -q tests/ml
+      # Linux torch uses the pinned CPU index; CI never trains on or downloads real wafer data.

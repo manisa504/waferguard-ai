@@ -1,0 +1,25 @@
+{
+  "device": "cpu",
+  "models": {
+    "cnn": {
+      "artifact_bytes": 698833,
+      "artifact_sha256": "13a35b215f2256e277eb7221fd0ad02d7bad228fdb9d38d0d83dcc5f68bd6709",
+      "batch_size": 1,
+      "p50_ms": 0.332813,
+      "p95_ms": 0.37927084999999994,
+      "samples": 100
+    },
+    "forest": {
+      "artifact_bytes": 6223991,
+      "artifact_sha256": "15dadaf7a415062592d63f925d3bc1aeac51ffff4c38a694e8a6f7660b48f9b7",
+      "batch_size": 1,
+      "p50_ms": 15.895104499999999,
+      "p95_ms": 16.695029199999997,
+      "samples": 100
+    }
+  },
+  "production_or_aws_benchmark": false,
+  "scope": "Warm local batch-one inference from already encoded 64x64 states; includes feature extraction or one-hot conversion, excludes source resizing, integrity verification, model loading, network and AWS cold starts",
+  "threads": 4,
+  "warmup_requests": 20
+}

@@ -1,0 +1,308 @@
+
+> waferguard-foundation@0.1.0 synth
+> cdk synth --strict
+
+AI agent detected
+Parameters:
+  AlertEmail:
+    Type: String
+    AllowedPattern: "[^\\s@]+@[^\\s@]+\\.[^\\s@]+"
+    Description: Owner email for actual and forecast budget notifications
+  MonthlyBudgetUsd:
+    Type: Number
+    Default: 25
+    Description: Account-wide monthly warning threshold; not a spending cap or cost forecast
+    MaxValue: 1000
+    MinValue: 1
+  BootstrapVersion:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cdk-bootstrap/hnb659fds/version
+    Description: Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]
+Resources:
+  AccessLogs8B620ECA:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+            ExpirationInDays: 90
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 90
+            Status: Enabled
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Environment
+          Value: portfolio
+        - Key: Owner
+          Value: WaferGuard
+        - Key: Project
+          Value: WaferGuard
+      VersioningConfiguration:
+        Status: Enabled
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/AccessLogs/Resource
+  AccessLogsPolicyABDC4D2D:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: AccessLogs8B620ECA
+      PolicyDocument:
+        Statement:
+          - Action: s3:*
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+            Effect: Deny
+            Principal:
+              AWS: "*"
+            Resource:
+              - Fn::GetAtt:
+                  - AccessLogs8B620ECA
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - AccessLogs8B620ECA
+                        - Arn
+                    - /*
+          - Action: s3:PutObject
+            Condition:
+              ArnLike:
+                aws:SourceArn:
+                  Fn::GetAtt:
+                    - RawData202C7BD0
+                    - Arn
+              StringEquals:
+                aws:SourceAccount:
+                  Ref: AWS::AccountId
+            Effect: Allow
+            Principal:
+              Service: logging.s3.amazonaws.com
+            Resource:
+              Fn::Join:
+                - ""
+                - - Fn::GetAtt:
+                      - AccessLogs8B620ECA
+                      - Arn
+                  - /RawData/*
+          - Action: s3:PutObject
+            Condition:
+              ArnLike:
+                aws:SourceArn:
+                  Fn::GetAtt:
+                    - Artifacts82DD59A1
+                    - Arn
+              StringEquals:
+                aws:SourceAccount:
+                  Ref: AWS::AccountId
+            Effect: Allow
+            Principal:
+              Service: logging.s3.amazonaws.com
+            Resource:
+              Fn::Join:
+                - ""
+                - - Fn::GetAtt:
+                      - AccessLogs8B620ECA
+                      - Arn
+                  - /Artifacts/*
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/AccessLogs/Policy/Resource
+  RawData202C7BD0:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+            Status: Enabled
+      LoggingConfiguration:
+        DestinationBucketName:
+          Ref: AccessLogs8B620ECA
+        LogFilePrefix: RawData/
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Environment
+          Value: portfolio
+        - Key: Owner
+          Value: WaferGuard
+        - Key: Project
+          Value: WaferGuard
+      VersioningConfiguration:
+        Status: Enabled
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/RawData/Resource
+  RawDataPolicy9FCDD93E:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: RawData202C7BD0
+      PolicyDocument:
+        Statement:
+          - Action: s3:*
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+            Effect: Deny
+            Principal:
+              AWS: "*"
+            Resource:
+              - Fn::GetAtt:
+                  - RawData202C7BD0
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - RawData202C7BD0
+                        - Arn
+                    - /*
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/RawData/Policy/Resource
+  Artifacts82DD59A1:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+            Status: Enabled
+      LoggingConfiguration:
+        DestinationBucketName:
+          Ref: AccessLogs8B620ECA
+        LogFilePrefix: Artifacts/
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Environment
+          Value: portfolio
+        - Key: Owner
+          Value: WaferGuard
+        - Key: Project
+          Value: WaferGuard
+      VersioningConfiguration:
+        Status: Enabled
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/Artifacts/Resource
+  ArtifactsPolicy6E9058CC:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: Artifacts82DD59A1
+      PolicyDocument:
+        Statement:
+          - Action: s3:*
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+            Effect: Deny
+            Principal:
+              AWS: "*"
+            Resource:
+              - Fn::GetAtt:
+                  - Artifacts82DD59A1
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - Artifacts82DD59A1
+                        - Arn
+                    - /*
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/Artifacts/Policy/Resource
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetLimit:
+          Amount:
+            Ref: MonthlyBudgetUsd
+          Unit: USD
+        BudgetType: COST
+        TimeUnit: MONTHLY
+      NotificationsWithSubscribers:
+        - Notification:
+            ComparisonOperator: GREATER_THAN
+            NotificationType: ACTUAL
+            Threshold: 80
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - Address:
+                Ref: AlertEmail
+              SubscriptionType: EMAIL
+        - Notification:
+            ComparisonOperator: GREATER_THAN
+            NotificationType: FORECASTED
+            Threshold: 100
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - Address:
+                Ref: AlertEmail
+              SubscriptionType: EMAIL
+      ResourceTags:
+        - Key: Environment
+          Value: portfolio
+        - Key: Owner
+          Value: WaferGuard
+        - Key: Project
+          Value: WaferGuard
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/MonthlyBudget
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Analytics: v2:deflate64:H4sIAAAAAAAA/0WMTQ6CMBCFz8K+jAWNrtUDSCRxa4a2mkppCTOVGMLdTcHE1fveT14J5WEPMsORcqXb3NkGpppRteL88BUO2Bk2g8CR7hNtYTpF1RpO5Y9WqYKz6vOPVz+LJuqnYYKlSDinzSVyH3kWPmgDL9q8yx0UBRTZi6zNh+jZdgauqwoJEmTWL483dFYj2+DhOFIdXExMX894BpHHAAAA
+    Metadata:
+      aws:cdk:path: WaferGuardFoundation/CDKMetadata/Default
+Outputs:
+  RawDataBucketName:
+    Value:
+      Ref: RawData202C7BD0
+  ArtifactsBucketName:
+    Value:
+      Ref: Artifacts82DD59A1
+  AccessLogsBucketName:
+    Value:
+      Ref: AccessLogs8B620ECA
+
+83 feature flags are not configured. Run 'cdk flags --unstable=flags' to learn more.

@@ -1,0 +1,545 @@
+{
+  "all_source_components": {
+    "class_component_support": {
+      "Center": 1315,
+      "Donut": 187,
+      "Edge-Loc": 2649,
+      "Edge-Ring": 1002,
+      "Loc": 1922,
+      "Near-full": 96,
+      "None": 5043,
+      "Random": 369,
+      "Scratch": 896
+    },
+    "components": 34523,
+    "largest_component_rows": 32717,
+    "largest_components": [
+      {
+        "class_counts": {
+          "Loc": 27
+        },
+        "id": "lot13146",
+        "rows": 32717,
+        "unique_lots": 1730
+      },
+      {
+        "class_counts": {},
+        "id": "lot26731",
+        "rows": 20404,
+        "unique_lots": 1040
+      },
+      {
+        "class_counts": {
+          "Loc": 2
+        },
+        "id": "lot1525",
+        "rows": 18993,
+        "unique_lots": 1591
+      },
+      {
+        "class_counts": {
+          "Center": 62,
+          "Donut": 1,
+          "Edge-Loc": 229,
+          "Edge-Ring": 23,
+          "Loc": 238,
+          "Near-full": 16,
+          "None": 12257,
+          "Random": 57,
+          "Scratch": 62
+        },
+        "id": "lot10",
+        "rows": 15736,
+        "unique_lots": 638
+      },
+      {
+        "class_counts": {
+          "Loc": 21
+        },
+        "id": "lot10837",
+        "rows": 11692,
+        "unique_lots": 608
+      },
+      {
+        "class_counts": {
+          "Center": 39,
+          "Donut": 2,
+          "Edge-Loc": 180,
+          "Edge-Ring": 6,
+          "Loc": 180,
+          "Near-full": 4,
+          "None": 8964,
+          "Random": 14,
+          "Scratch": 54
+        },
+        "id": "lot40728",
+        "rows": 10925,
+        "unique_lots": 441
+      },
+      {
+        "class_counts": {
+          "Loc": 6
+        },
+        "id": "lot10240",
+        "rows": 10610,
+        "unique_lots": 681
+      },
+      {
+        "class_counts": {
+          "Center": 18,
+          "Donut": 1,
+          "Edge-Loc": 80,
+          "Edge-Ring": 17,
+          "Loc": 83,
+          "Near-full": 26,
+          "None": 5995,
+          "Random": 7,
+          "Scratch": 36
+        },
+        "id": "lot1847",
+        "rows": 7555,
+        "unique_lots": 309
+      },
+      {
+        "class_counts": {},
+        "id": "lot12330",
+        "rows": 5265,
+        "unique_lots": 476
+      },
+      {
+        "class_counts": {},
+        "id": "lot10650",
+        "rows": 3748,
+        "unique_lots": 155
+      }
+    ],
+    "rows": 811457
+  },
+  "artifacts_sha256": {
+    "calibration.jsonl": "d608d624973f985045bcb228cee362fc1b883fb76b91f3f7149c281e09c3aba5",
+    "duplicate-membership.jsonl": "5a34d4120c813303862f01ee08814e839a182d865e0fc8fc32138527db9fe15a",
+    "quarantine.jsonl": "e422552c5b062e0b36c27be959c360a80f28a26233165adaed282131dd06f3af",
+    "test.jsonl": "aad0768236f4c10386ce4618588d07e4760acfb33a776af5163a3209c680d576",
+    "train.jsonl": "184dd8cb31f60a1d78c9f051a8855136dfc4ad347d7067036691a6e37822ca1f",
+    "validation.jsonl": "4bfcb40863e84910b949d7da886c0b384e7c35aff2e0352e5f247033f30ee7b1"
+  },
+  "config_sha256": "49309e65bec5fb1ee2f4721181871cee29c3d4a88ef50f2e9527d0602bd659d8",
+  "eligible_before_dedup_components": {
+    "class_component_support": {
+      "Center": 1593,
+      "Donut": 233,
+      "Edge-Loc": 3030,
+      "Edge-Ring": 1043,
+      "Loc": 2293,
+      "Near-full": 121,
+      "None": 5957,
+      "Random": 404,
+      "Scratch": 999
+    },
+    "components": 10113,
+    "largest_component_rows": 12568,
+    "largest_components": [
+      {
+        "class_counts": {
+          "Center": 55,
+          "Donut": 1,
+          "Edge-Loc": 214,
+          "Edge-Ring": 21,
+          "Loc": 225,
+          "Near-full": 16,
+          "None": 11918,
+          "Random": 56,
+          "Scratch": 62
+        },
+        "id": "lot10",
+        "rows": 12568,
+        "unique_lots": 598
+      },
+      {
+        "class_counts": {
+          "Center": 2,
+          "Edge-Loc": 2,
+          "Loc": 3,
+          "Near-full": 1,
+          "None": 309
+        },
+        "id": "lot45091",
+        "rows": 317,
+        "unique_lots": 13
+      },
+      {
+        "class_counts": {
+          "Loc": 3,
+          "None": 271
+        },
+        "id": "lot45110",
+        "rows": 274,
+        "unique_lots": 11
+      },
+      {
+        "class_counts": {
+          "None": 166,
+          "Random": 1
+        },
+        "id": "lot45104",
+        "rows": 167,
+        "unique_lots": 7
+      },
+      {
+        "class_counts": {
+          "Loc": 1,
+          "None": 98
+        },
+        "id": "lot45095",
+        "rows": 99,
+        "unique_lots": 4
+      },
+      {
+        "class_counts": {
+          "None": 99
+        },
+        "id": "lot45105",
+        "rows": 99,
+        "unique_lots": 4
+      },
+      {
+        "class_counts": {
+          "Edge-Ring": 77
+        },
+        "id": "lot14393",
+        "rows": 77,
+        "unique_lots": 4
+      },
+      {
+        "class_counts": {
+          "None": 49
+        },
+        "id": "lot45097",
+        "rows": 49,
+        "unique_lots": 2
+      },
+      {
+        "class_counts": {
+          "Edge-Loc": 1,
+          "Near-full": 2,
+          "None": 43
+        },
+        "id": "lot44858",
+        "rows": 46,
+        "unique_lots": 2
+      },
+      {
+        "class_counts": {
+          "None": 43
+        },
+        "id": "lot15329",
+        "rows": 43,
+        "unique_lots": 2
+      }
+    ],
+    "rows": 172922
+  },
+  "expanded_membership_audit": {
+    "approximate_duplicate_limit": "No guarantee against noise, crop or resize similarity",
+    "checked_keys": [
+      "row_id",
+      "lot",
+      "map_hash",
+      "orbit_hash",
+      "component",
+      "duplicate_group",
+      "input_hash",
+      "input_orbit_hash"
+    ],
+    "errors": [],
+    "passed": true,
+    "transformed_duplicate_check": "Exact dihedral D4 rotations/reflections only"
+  },
+  "feasibility": {
+    "assignment_attempt": 3,
+    "class_component_support": {
+      "Center": 1593,
+      "Donut": 233,
+      "Edge-Loc": 3030,
+      "Edge-Ring": 1043,
+      "Loc": 2293,
+      "Near-full": 121,
+      "None": 5957,
+      "Random": 404,
+      "Scratch": 999
+    },
+    "class_counts": {
+      "Center": 4286,
+      "Donut": 555,
+      "Edge-Loc": 5143,
+      "Edge-Ring": 9655,
+      "Loc": 3572,
+      "Near-full": 141,
+      "None": 144273,
+      "Random": 852,
+      "Scratch": 1182
+    },
+    "components": 10113,
+    "largest_component_rows": 9423,
+    "largest_components": [
+      {
+        "class_counts": {
+          "Center": 50,
+          "Donut": 1,
+          "Edge-Loc": 185,
+          "Edge-Ring": 15,
+          "Loc": 207,
+          "Near-full": 9,
+          "None": 8863,
+          "Random": 42,
+          "Scratch": 51
+        },
+        "id": "lot10",
+        "rows": 9423,
+        "unique_lots": 598
+      },
+      {
+        "class_counts": {
+          "Center": 2,
+          "Edge-Loc": 2,
+          "Loc": 3,
+          "Near-full": 1,
+          "None": 289
+        },
+        "id": "lot45091",
+        "rows": 297,
+        "unique_lots": 13
+      },
+      {
+        "class_counts": {
+          "Loc": 3,
+          "None": 254
+        },
+        "id": "lot45110",
+        "rows": 257,
+        "unique_lots": 11
+      },
+      {
+        "class_counts": {
+          "None": 159,
+          "Random": 1
+        },
+        "id": "lot45104",
+        "rows": 160,
+        "unique_lots": 7
+      },
+      {
+        "class_counts": {
+          "None": 94
+        },
+        "id": "lot45105",
+        "rows": 94,
+        "unique_lots": 4
+      },
+      {
+        "class_counts": {
+          "Loc": 1,
+          "None": 91
+        },
+        "id": "lot45095",
+        "rows": 92,
+        "unique_lots": 4
+      },
+      {
+        "class_counts": {
+          "Edge-Ring": 71
+        },
+        "id": "lot14393",
+        "rows": 71,
+        "unique_lots": 4
+      },
+      {
+        "class_counts": {
+          "None": 48
+        },
+        "id": "lot45097",
+        "rows": 48,
+        "unique_lots": 2
+      },
+      {
+        "class_counts": {
+          "Edge-Loc": 1,
+          "Near-full": 1,
+          "None": 43
+        },
+        "id": "lot44858",
+        "rows": 45,
+        "unique_lots": 2
+      },
+      {
+        "class_counts": {
+          "Loc": 1,
+          "None": 24
+        },
+        "id": "lot1",
+        "rows": 25,
+        "unique_lots": 1
+      }
+    ],
+    "rows": 169659,
+    "split_counts": {
+      "calibration": {
+        "class_counts": {
+          "Center": 444,
+          "Donut": 65,
+          "Edge-Loc": 562,
+          "Edge-Ring": 965,
+          "Loc": 370,
+          "Near-full": 15,
+          "None": 14391,
+          "Random": 96,
+          "Scratch": 117
+        },
+        "rows": 17025
+      },
+      "test": {
+        "class_counts": {
+          "Center": 419,
+          "Donut": 63,
+          "Edge-Loc": 503,
+          "Edge-Ring": 965,
+          "Loc": 350,
+          "Near-full": 15,
+          "None": 14415,
+          "Random": 89,
+          "Scratch": 117
+        },
+        "rows": 16936
+      },
+      "train": {
+        "class_counts": {
+          "Center": 2979,
+          "Donut": 362,
+          "Edge-Loc": 3518,
+          "Edge-Ring": 6760,
+          "Loc": 2482,
+          "Near-full": 96,
+          "None": 101075,
+          "Random": 574,
+          "Scratch": 831
+        },
+        "rows": 118677
+      },
+      "validation": {
+        "class_counts": {
+          "Center": 444,
+          "Donut": 65,
+          "Edge-Loc": 560,
+          "Edge-Ring": 965,
+          "Loc": 370,
+          "Near-full": 15,
+          "None": 14392,
+          "Random": 93,
+          "Scratch": 117
+        },
+        "rows": 17021
+      }
+    },
+    "target_fractions": {
+      "calibration": 0.1,
+      "test": 0.1,
+      "train": 0.7,
+      "validation": 0.1
+    }
+  },
+  "index_sha256": "d5656cb8ad60ab9a1aaca5e9cdfcf7d0289bbcda65951420473b524bb234d5d6",
+  "leakage_audit": {
+    "approximate_duplicate_limit": "No guarantee against noise, crop or resize similarity",
+    "checked_keys": [
+      "row_id",
+      "lot",
+      "map_hash",
+      "orbit_hash",
+      "component",
+      "duplicate_group",
+      "input_hash",
+      "input_orbit_hash"
+    ],
+    "errors": [],
+    "passed": true,
+    "transformed_duplicate_check": "Exact dihedral D4 rotations/reflections only"
+  },
+  "measured_at_utc": "2026-11-11T01:32:06.416379+00:00",
+  "next_decision": "Gate 2 review required before model training",
+  "preparation": {
+    "conflicting_equivalence_groups": 14,
+    "conflicting_labels": {
+      "0449786f674c97614d64ebbbe9a832b970a055a2e6cebad2f5d0fe46e9bfdbde": [
+        "Edge-Loc",
+        "None"
+      ],
+      "048e35090d9f71fd62ef44468e6168f5581cbab109ad460fcc36f64ac1d1527d": [
+        "Center",
+        "None"
+      ],
+      "06a3b761c2b7987ba809ce95900044ae017b42edf7dfe7f1dcf79a2696431349": [
+        "Edge-Loc",
+        "None"
+      ],
+      "0ac2889bb0f6b92459d601aec1b7d35e952ff0a000a988f43ccfc65445140b0b": [
+        "Center",
+        "Loc"
+      ],
+      "0f051ef441e3f780ef14e56c091c16ebc869f2fe28f8cd21a62c47a76ba5fec0": [
+        "Center",
+        "None"
+      ],
+      "0f45ec9871c377e542ab7afb7d578375c3717b653c63d632335489faace36c5c": [
+        "Loc",
+        "None"
+      ],
+      "12b276056681c60422b523ca2c856585c7234dedc50bb1dd114916c55f0480ce": [
+        "Edge-Loc",
+        "None"
+      ],
+      "13dd4dd6117fe906e2d94f19a6fe04af5f7c51ed582b6ea994f568b6b9089be9": [
+        "Loc",
+        "None"
+      ],
+      "1bcc0ff6dbed5d9431bb3f9a5ce94d62a50d4b73c1daa665f2f9b527f52d4489": [
+        "Edge-Loc",
+        "None"
+      ],
+      "213f5fef14db448845b1267b8d670980a6cb94b5ce8ef8e0875a1fd10ff8829e": [
+        "Edge-Loc",
+        "Edge-Ring"
+      ],
+      "266dfef1e51b2b316a91fdcd2e25f0a5c6d5f1c0eb7bd1efd61d88a05b973768": [
+        "Edge-Loc",
+        "None"
+      ],
+      "2852a186d3449a4fab9ce3ab5d61ee542d2a96a705320f0afe6f9c29d30edaac": [
+        "Edge-Loc",
+        "None"
+      ],
+      "29b348028360e559c1611ea93b57e06be286524876fcea3a99cd1943c4dce355": [
+        "Edge-Loc",
+        "Edge-Ring"
+      ],
+      "29f50926ed7c7131750cc460261f04932b99ec265c0290278aaefa13e49267ea": [
+        "Edge-Loc",
+        "None"
+      ]
+    },
+    "consistent_labeled_rows": 172922,
+    "deduplicated_rows": 169659,
+    "duplicate_labeled_rows_removed": 3263,
+    "original_conflicting_orbit_groups": 14,
+    "quarantined_labeled_rows": 28,
+    "source_rows": 811457,
+    "unlabeled_excluded": 638507
+  },
+  "processed_artifacts_sha256": {
+    "records.jsonl.gz": "0feae07cc3819407da25208e2ae8042366ac291b07a0984f2c44f19b58bdf660",
+    "states.npy": "5f818a45deaf498a3290b3e02a23280397ffd80fd48103c167ce6b31fc41eeda"
+  },
+  "processed_manifest_sha256": "da4c424eb29045fb960f51f34c33dbeabeec713bcdb1ae594b7ab3e9c901ca5f",
+  "source_archive_sha256": "0e4bd4316a110a04e475a88071f5e1c7fe4303b12ee53c851d2cae4d995a93e2",
+  "split_created": true,
+  "split_implementation_sha256": "4b087dd80569deb2796478424ed3b185afc286c8e02d85bb4e95b322e96826d8"
+}

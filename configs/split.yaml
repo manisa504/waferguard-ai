@@ -1,0 +1,17 @@
+version: lot-orbit-input-components-v2
+seed: 42
+fractions:
+  train: 0.7
+  validation: 0.1
+  calibration: 0.1
+  test: 0.1
+max_absolute_fraction_error: 0.04
+minimum_per_class:
+  train: 20
+  validation: 5
+  calibration: 5
+  test: 5
+attempts: 32
+image_size: 64
+# Only consistent labeled records enter the supervised benchmark.
+# Preserve lot + exact/rotation/reflection groups; never silently fall back to random rows.

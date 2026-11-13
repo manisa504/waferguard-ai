@@ -1,0 +1,14 @@
+{
+  "comparison": "Two full runs reproduced identical manifest bytes without overwriting changed files",
+  "config_sha256": "49309e65bec5fb1ee2f4721181871cee29c3d4a88ef50f2e9527d0602bd659d8",
+  "passed": true,
+  "same_artifact_hashes": {
+    "calibration.jsonl": "d608d624973f985045bcb228cee362fc1b883fb76b91f3f7149c281e09c3aba5",
+    "duplicate-membership.jsonl": "5a34d4120c813303862f01ee08814e839a182d865e0fc8fc32138527db9fe15a",
+    "quarantine.jsonl": "e422552c5b062e0b36c27be959c360a80f28a26233165adaed282131dd06f3af",
+    "test.jsonl": "aad0768236f4c10386ce4618588d07e4760acfb33a776af5163a3209c680d576",
+    "train.jsonl": "184dd8cb31f60a1d78c9f051a8855136dfc4ad347d7067036691a6e37822ca1f",
+    "validation.jsonl": "4bfcb40863e84910b949d7da886c0b384e7c35aff2e0352e5f247033f30ee7b1"
+  },
+  "split_implementation_sha256": "4b087dd80569deb2796478424ed3b185afc286c8e02d85bb4e95b322e96826d8"
+}

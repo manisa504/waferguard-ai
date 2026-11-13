@@ -1,0 +1,55 @@
+{
+  "model_trained_or_evaluated": false,
+  "passed": true,
+  "split_report_sha256": "bd156365b9dd2a75b5de04e51125d373a02eaf6d54f439b57a51fb555d946d6a",
+  "splits": {
+    "calibration": {
+      "channels_one_hot": true,
+      "dtype": "float32",
+      "records": 17025,
+      "sampled_records": 2,
+      "shape": [
+        3,
+        64,
+        64
+      ],
+      "states_read_only": true
+    },
+    "test": {
+      "channels_one_hot": true,
+      "dtype": "float32",
+      "records": 16936,
+      "sampled_records": 2,
+      "shape": [
+        3,
+        64,
+        64
+      ],
+      "states_read_only": true
+    },
+    "train": {
+      "channels_one_hot": true,
+      "dtype": "float32",
+      "records": 118677,
+      "sampled_records": 2,
+      "shape": [
+        3,
+        64,
+        64
+      ],
+      "states_read_only": true
+    },
+    "validation": {
+      "channels_one_hot": true,
+      "dtype": "float32",
+      "records": 17021,
+      "sampled_records": 2,
+      "shape": [
+        3,
+        64,
+        64
+      ],
+      "states_read_only": true
+    }
+  }
+}

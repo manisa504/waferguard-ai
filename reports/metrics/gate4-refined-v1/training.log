@@ -1,0 +1,32 @@
+Refinement epoch 1: batch 200
+Refinement epoch 1: batch 400
+Refinement epoch 1: macro-F1=0.7766, Scratch recall=0.4701
+Refinement epoch 2: batch 200
+Refinement epoch 2: batch 400
+Refinement epoch 2: macro-F1=0.7965, Scratch recall=0.5128
+Refinement epoch 3: batch 200
+Refinement epoch 3: batch 400
+Refinement epoch 3: macro-F1=0.7683, Scratch recall=0.5897
+Refinement epoch 4: batch 200
+Refinement epoch 4: batch 400
+Refinement epoch 4: macro-F1=0.7442, Scratch recall=0.4786
+Refinement epoch 5: batch 200
+Refinement epoch 5: batch 400
+Refinement epoch 5: macro-F1=0.7220, Scratch recall=0.5556
+Refinement epoch 6: batch 200
+Refinement epoch 6: batch 400
+Refinement epoch 6: macro-F1=0.7510, Scratch recall=0.4786
+Refinement epoch 7: batch 200
+Refinement epoch 7: batch 400
+Refinement epoch 7: macro-F1=0.7679, Scratch recall=0.5470
+Refinement epoch 8: batch 200
+Refinement epoch 8: batch 400
+Refinement epoch 8: macro-F1=0.7604, Scratch recall=0.4274
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "$PROJECT_ROOT/src/waferguard/training/refine.py", line 150, in <module>
+    main()
+  File "$PROJECT_ROOT/src/waferguard/training/refine.py", line 126, in main
+    raise ValueError("Refinement still fails the predeclared Scratch gate")
+ValueError: Refinement still fails the predeclared Scratch gate

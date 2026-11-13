@@ -1,0 +1,110 @@
+Training weighted on 118,677 real records
+weighted epoch 1: 51,456 samples
+weighted epoch 1: 102,656 samples
+weighted epoch 1: macro-F1=0.6588, Scratch recall=0.0085
+weighted epoch 2: 51,456 samples
+weighted epoch 2: 102,656 samples
+weighted epoch 2: macro-F1=0.7238, Scratch recall=0.0085
+weighted epoch 3: 51,456 samples
+weighted epoch 3: 102,656 samples
+weighted epoch 3: macro-F1=0.6883, Scratch recall=0.0000
+weighted epoch 4: 51,456 samples
+weighted epoch 4: 102,656 samples
+weighted epoch 4: macro-F1=0.7685, Scratch recall=0.0427
+weighted epoch 5: 51,456 samples
+weighted epoch 5: 102,656 samples
+weighted epoch 5: macro-F1=0.7732, Scratch recall=0.2991
+weighted epoch 6: 51,456 samples
+weighted epoch 6: 102,656 samples
+weighted epoch 6: macro-F1=0.7851, Scratch recall=0.5470
+weighted epoch 7: 51,456 samples
+weighted epoch 7: 102,656 samples
+weighted epoch 7: macro-F1=0.7294, Scratch recall=0.4274
+weighted epoch 8: 51,456 samples
+weighted epoch 8: 102,656 samples
+weighted epoch 8: macro-F1=0.8074, Scratch recall=0.3590
+Training sampled on 118,677 real records
+sampled epoch 1: 51,456 samples
+sampled epoch 1: 102,656 samples
+sampled epoch 1: macro-F1=0.7419, Scratch recall=0.0256
+sampled epoch 2: 51,456 samples
+sampled epoch 2: 102,656 samples
+sampled epoch 2: macro-F1=0.7874, Scratch recall=0.1453
+sampled epoch 3: 51,456 samples
+sampled epoch 3: 102,656 samples
+sampled epoch 3: macro-F1=0.7599, Scratch recall=0.1624
+sampled epoch 4: 51,456 samples
+sampled epoch 4: 102,656 samples
+sampled epoch 4: macro-F1=0.7827, Scratch recall=0.4359
+sampled epoch 5: 51,456 samples
+sampled epoch 5: 102,656 samples
+sampled epoch 5: macro-F1=0.7957, Scratch recall=0.3675
+sampled epoch 6: 51,456 samples
+sampled epoch 6: 102,656 samples
+sampled epoch 6: macro-F1=0.8093, Scratch recall=0.4786
+sampled epoch 7: 51,456 samples
+sampled epoch 7: 102,656 samples
+sampled epoch 7: macro-F1=0.8209, Scratch recall=0.4701
+sampled epoch 8: 51,456 samples
+sampled epoch 8: 102,656 samples
+sampled epoch 8: macro-F1=0.7874, Scratch recall=0.2051
+Training weighted_augmented on 118,677 real records
+weighted_augmented epoch 1: 51,456 samples
+weighted_augmented epoch 1: 102,656 samples
+weighted_augmented epoch 1: macro-F1=0.6656, Scratch recall=0.0000
+weighted_augmented epoch 2: 51,456 samples
+weighted_augmented epoch 2: 102,656 samples
+weighted_augmented epoch 2: macro-F1=0.7407, Scratch recall=0.0000
+weighted_augmented epoch 3: 51,456 samples
+weighted_augmented epoch 3: 102,656 samples
+weighted_augmented epoch 3: macro-F1=0.6609, Scratch recall=0.0000
+weighted_augmented epoch 4: 51,456 samples
+weighted_augmented epoch 4: 102,656 samples
+weighted_augmented epoch 4: macro-F1=0.7918, Scratch recall=0.0256
+weighted_augmented epoch 5: 51,456 samples
+weighted_augmented epoch 5: 102,656 samples
+weighted_augmented epoch 5: macro-F1=0.7752, Scratch recall=0.1026
+weighted_augmented epoch 6: 51,456 samples
+weighted_augmented epoch 6: 102,656 samples
+weighted_augmented epoch 6: macro-F1=0.7921, Scratch recall=0.2308
+weighted_augmented epoch 7: 51,456 samples
+weighted_augmented epoch 7: 102,656 samples
+weighted_augmented epoch 7: macro-F1=0.7233, Scratch recall=0.4615
+weighted_augmented epoch 8: 51,456 samples
+weighted_augmented epoch 8: 102,656 samples
+weighted_augmented epoch 8: macro-F1=0.7792, Scratch recall=0.2650
+Training lite_weighted on 118,677 real records
+lite_weighted epoch 1: 51,456 samples
+lite_weighted epoch 1: 102,656 samples
+lite_weighted epoch 1: macro-F1=0.6171, Scratch recall=0.0000
+lite_weighted epoch 2: 51,456 samples
+lite_weighted epoch 2: 102,656 samples
+lite_weighted epoch 2: macro-F1=0.6796, Scratch recall=0.0000
+lite_weighted epoch 3: 51,456 samples
+lite_weighted epoch 3: 102,656 samples
+lite_weighted epoch 3: macro-F1=0.6943, Scratch recall=0.0000
+lite_weighted epoch 4: 51,456 samples
+lite_weighted epoch 4: 102,656 samples
+lite_weighted epoch 4: macro-F1=0.7421, Scratch recall=0.0256
+lite_weighted epoch 5: 51,456 samples
+lite_weighted epoch 5: 102,656 samples
+lite_weighted epoch 5: macro-F1=0.7245, Scratch recall=0.0000
+lite_weighted epoch 6: 51,456 samples
+lite_weighted epoch 6: 102,656 samples
+lite_weighted epoch 6: macro-F1=0.7301, Scratch recall=0.3675
+lite_weighted epoch 7: 51,456 samples
+lite_weighted epoch 7: 102,656 samples
+lite_weighted epoch 7: macro-F1=0.7163, Scratch recall=0.1880
+lite_weighted epoch 8: 51,456 samples
+lite_weighted epoch 8: 102,656 samples
+lite_weighted epoch 8: macro-F1=0.7861, Scratch recall=0.2821
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "$PROJECT_ROOT/src/waferguard/training/advanced.py", line 219, in <module>
+    main()
+  File "$PROJECT_ROOT/src/waferguard/training/advanced.py", line 215, in main
+    run(args.config, args.run, args.reports)
+  File "$PROJECT_ROOT/src/waferguard/training/advanced.py", line 189, in run
+    raise ValueError("No candidate meets the predeclared Scratch recall gate")
+ValueError: No candidate meets the predeclared Scratch recall gate

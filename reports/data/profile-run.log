@@ -1,0 +1,130 @@
+Profiled 100,000 records
+Profiled 200,000 records
+Profiled 300,000 records
+Profiled 400,000 records
+Profiled 500,000 records
+Profiled 600,000 records
+Profiled 700,000 records
+Profiled 800,000 records
+{
+  "total": 811457,
+  "columns": [
+    "waferMap",
+    "dieSize",
+    "lotName",
+    "waferIndex",
+    "trianTestLabel",
+    "failureType"
+  ],
+  "label_counts": {
+    "None": 147431,
+    "Loc": 3593,
+    "Edge-Loc": 5189,
+    "Center": 4294,
+    "Edge-Ring": 9680,
+    "Scratch": 1193,
+    "Random": 866,
+    "Near-full": 149,
+    "Donut": 555
+  },
+  "labeled": 172950,
+  "missing_labels": 638507,
+  "invalid_labels": 0,
+  "invalid_maps": 0,
+  "die_state_counts": {
+    "0": 422404108,
+    "1": 1393453681,
+    "2": 100437508
+  },
+  "unique_maps": 696599,
+  "unique_labeled_maps": 169698,
+  "duplicate_labeled_map_rows": 3252,
+  "conflicting_label_details": {
+    "aa145274c852afd0e347c1c163d5d36ece2cad435288a5e3451db8c59bf08a36": [
+      "Edge-Loc",
+      "None"
+    ],
+    "06a3b761c2b7987ba809ce95900044ae017b42edf7dfe7f1dcf79a2696431349": [
+      "Edge-Loc",
+      "None"
+    ],
+    "a5ae0a2afc63e369e57d4faefabe15de795a5c87fbcba3a2a45e67c8f86100db": [
+      "Loc",
+      "None"
+    ],
+    "a25501f45b5a76d3aad59841bc14b288dad6a8544e2ea63d3f396d91c0a47b02": [
+      "Edge-Loc",
+      "Edge-Ring"
+    ],
+    "db90ca120ecc60cc63fd2cc61fae466ba880d231e9d0b76d62001c5ccd109bc9": [
+      "Edge-Loc",
+      "None"
+    ],
+    "542e84293d2b961ede6cb805e57677dd50e65ca035f60afc71ba4cb39983c7ed": [
+      "Center",
+      "Loc"
+    ],
+    "c3413066d18b3c2af4c1f42618bd0c6c81ae5544fa084f81c0f9e3abeda38dea": [
+      "Loc",
+      "None"
+    ],
+    "5740ae0136b396b313b059c551b0fca57ae0cf118afffd62e8ebf7ae4501dc3e": [
+      "Center",
+      "None"
+    ],
+    "970b2cdcd7c9bf3c97fea927150c833e5686265e76f8572d55c49bb2aee720f8": [
+      "Edge-Loc",
+      "None"
+    ],
+    "a3f4934a6712aea049d3fe9d0eeb5b14dd58a71112a1a0e17567b9da9cedeaf3": [
+      "Edge-Loc",
+      "Edge-Ring"
+    ],
+    "481ec6ec14128c8dea33ae558437500f0b92f3ae67993259f0f659902e79ce99": [
+      "Edge-Loc",
+      "None"
+    ],
+    "a88c5161304e51a17960702fe577b1e1870bc8d3fd7547b2b8504d7190cbc641": [
+      "Center",
+      "None"
+    ],
+    "829e1864f4128300305159878b5ff76fe2f950ee8b7aabecaced572827275177": [
+      "Edge-Loc",
+      "None"
+    ],
+    "a3b3539e8971ca0dddaa51cb506cd47426cc96b603c7c480c4db873fd0b0ce92": [
+      "Edge-Loc",
+      "None"
+    ]
+  },
+  "source_training_test_shared_map_groups": 3158,
+  "source_training_test_shared_lots": 0,
+  "duplicate_map_rows": 114858,
+  "conflicting_label_map_groups": 14,
+  "unique_lots": 46293,
+  "missing_or_invalid_identifiers": 0,
+  "duplicate_wafer_ids": 0,
+  "duplicate_map_groups_across_lots": 32392,
+  "source_split_counts": {
+    "Training": 54355,
+    "<missing>": 638507,
+    "Test": 118595
+  },
+  "expected_counts_match": true,
+  "validation_pass": true,
+  "split_feasibility": {
+    "lot_identifiers_present": true,
+    "wafer_identifiers_present": true,
+    "candidate_grouping": "lotName",
+    "reliable_grouping_confirmed": false,
+    "decision": "Gate 2 must audit identifiers, merge lot/duplicate connected components, quarantine conflicting labels, and verify class coverage before splitting.",
+    "limitation": "Identifier presence is not proof of independence or temporal validity. No training/test split has been generated."
+  },
+  "schema_version": 1,
+  "measured_at_utc": "2026-11-11T00:38:18.569851+00:00",
+  "archive_sha256": "0e4bd4316a110a04e475a88071f5e1c7fe4303b12ee53c851d2cae4d995a93e2",
+  "config_sha256": "ed0fe4f74a71d87ba30b2d319379fefac2b75a6fa098ee5247ac7a72ab023f20",
+  "duration_seconds": 85.298,
+  "numpy_version": "1.26.4",
+  "pandas_version": "2.2.3"
+}

@@ -1,0 +1,21 @@
+stage: gate_3
+seed: 42
+device: cpu
+threads: 4
+processed: data/processed/categorical-64-v1
+splits: data/processed/splits-v2
+split_report: reports/data/split-audit.json
+validation_split: validation
+# Deliberately no calibration/test evaluation or threshold selection at this gate.
+forest:
+  n_estimators: 100
+  max_depth: 18
+  min_samples_leaf: 2
+cnn:
+  epochs: 8
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  selection_metric: macro_f1
+  class_weights: null
+  augmentation: false

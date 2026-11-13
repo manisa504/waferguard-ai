@@ -1,0 +1,21 @@
+source: https://www.kaggle.com/datasets/qingyi/wm811k-wafer-map
+slug: qingyi/wm811k-wafer-map
+version: 1
+expected_member: LSWMD.pkl
+expected_total: 811457
+expected_labeled: 172950
+expected_counts:
+  None: 147431
+  Edge-Ring: 9680
+  Edge-Loc: 5189
+  Center: 4294
+  Loc: 3593
+  Scratch: 1193
+  Random: 866
+  Donut: 555
+  Near-full: 149
+die_states:
+  0: outside_wafer
+  1: passing_die
+  2: failing_die
+split_status: pending_gate_2

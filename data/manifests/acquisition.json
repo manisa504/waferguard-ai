@@ -1,0 +1,22 @@
+{
+  "archive": "data/raw/wm811k-v1.zip",
+  "archive_bytes": 156686283,
+  "archive_sha256": "0e4bd4316a110a04e475a88071f5e1c7fe4303b12ee53c851d2cae4d995a93e2",
+  "dataset_version": 1,
+  "download_url": "https://www.kaggle.com/api/v1/datasets/download/qingyi/wm811k-wafer-map?datasetVersionNumber=1",
+  "integrity_limit": "Locally observed hash, not an independent publisher checksum.",
+  "license": "CC0: Public Domain",
+  "license_evidence": "data/manifests/kaggle-source-search.json",
+  "license_evidence_sha256": "ade1e5835c3f6f45d7cdc351e1254ee9734ac65c4a3986d6d0f86ec9f4c105c3",
+  "member": {
+    "bytes": 2095505977,
+    "crc32": 2019882289,
+    "name": "LSWMD.pkl"
+  },
+  "registered_at_utc": "2026-11-11T00:31:01.984445+00:00",
+  "rights_review": "Source lists CC0. Keep originals private; no sample redistribution yet.",
+  "schema_version": 1,
+  "slug": "qingyi/wm811k-wafer-map",
+  "source": "https://www.kaggle.com/datasets/qingyi/wm811k-wafer-map",
+  "upstream_last_updated": "2018-02-26T05:44:18.93Z"
+}

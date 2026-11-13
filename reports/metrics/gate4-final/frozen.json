@@ -1,0 +1,41 @@
+{
+  "artifacts": {
+    "calibration.json": "b7e21dd573136c2a8ff487c13c28a49717f87a87394cb1ac1416afe13f2ea7c1",
+    "model.pt": "b917a4d2c11c20510affb9c2197971c6c44ff8afae365ab398c1396382ff09e3",
+    "ood.json": "038b0576364e52e1b2bd7b9fe065cf4d9e7e64968b3cf7548efa82e6791b05fa",
+    "policy.json": "b9b01b3533ce49b46342dbd2391fefe56de83ae28d17f401d3ca067a5662ec97"
+  },
+  "calibration_version": "6fc71d38ab18ac2d8a964441b127467539eca7bb46aab991c6752b4f8a977ab8",
+  "candidate_result_sha256": "dc7dddef1a59e680556b447d02c8fbbe02d1e166768724afa7f5983df8a43fe5",
+  "classes": [
+    "Center",
+    "Donut",
+    "Edge-Loc",
+    "Edge-Ring",
+    "Loc",
+    "Near-full",
+    "None",
+    "Random",
+    "Scratch"
+  ],
+  "config_sha256": "e1ea31fd4cd0bf710de2350eaa2f5845192ca7b084dbba6bd1902bf1fd12e3a7",
+  "evaluation_code_sha256": "1f5748dd9b949e0007e848bc26e6c968c5cbda1e6703ddec7d62f7e86eb2e647",
+  "model_version": "b917a4d2c11c20510affb9c2197971c6c44ff8afae365ab398c1396382ff09e3",
+  "policy_version": "1f0e62afef9e6b4f22d2d4db3a094be46ba48cc67bdd475fd503b16f0d80b572",
+  "selection_split": "validation",
+  "source_sha256": {
+    "data/dataset.py": "1a9d44c181e6015c52a0299cbcce17c3d86d34a0593ab2b47e19a5a5ccb388b1",
+    "data/materialize.py": "8295860cebc6d619b0e7d6011be28a4efba6979a9c96c03a6162b99643169e9e",
+    "data/preprocess.py": "e5954d5da9a17b44a47dd8dca7bd0402ac2d1cae8f733317c3977dacbc21b59c",
+    "evaluation/calibration.py": "e433dcdb485887de14ba3b1e01509fdc6b558e8df65918bb31e7e60dcfee3054",
+    "evaluation/metrics.py": "46a688939d342d5b6a3c1c82e5186887fae42973205e2a22cb832ba3a95cd4a8",
+    "evaluation/ood.py": "641397e25a90cf66042d4bf3cc8cb349e9c404287bfc450698ab24bcbe0f0c7c",
+    "evaluation/selective_risk.py": "5df8c390cb146e871863b053476ad04c1f65b0d6f798452db7e31ed9bb061501",
+    "models/cnn.py": "4c44a6eefd13604f262c3c43c917e53b53059e3f276543e1437f8e69062a7a70",
+    "models/lite.py": "5fe8878dbf721328a3b1be5279526ff53f072096bae65ea42a75fc92999b39de",
+    "training/advanced.py": "75d4c5dadbcb634805e8a62402a82b6c35b96291feb881adffe636ddb688dba1",
+    "training/train.py": "481ba19a1b03c909cce8f69332e6dc24cde78ae3c89fc0ed05013b38fb87aac5"
+  },
+  "split_report_sha256": "bd156365b9dd2a75b5de04e51125d373a02eaf6d54f439b57a51fb555d946d6a",
+  "test_evaluated": false
+}

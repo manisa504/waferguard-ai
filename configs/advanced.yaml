@@ -1,0 +1,22 @@
+stage: gate_4
+seed: 43
+threads: 4
+epochs: 8
+batch_size: 256
+learning_rate: 0.001
+weight_decay: 0.0001
+processed: data/processed/categorical-64-v1
+splits: data/processed/splits-v2
+split_report: reports/data/split-audit.json
+minimum_scratch_recall: 0.60
+experiments:
+  - {name: weighted, architecture: cnn, weighting: inverse_sqrt, sampling: false, augmentation: false}
+  - {name: sampled, architecture: cnn, weighting: none, sampling: true, augmentation: false}
+  - {name: weighted_augmented, architecture: cnn, weighting: inverse_sqrt, sampling: false, augmentation: true}
+  - {name: lite_weighted, architecture: lite, weighting: inverse_sqrt, sampling: false, augmentation: false}
+policy:
+  target_accepted_error: 0.01
+  maximum_wilson_upper: 0.02
+  minimum_accepted: 500
+  minimum_margin: 0.20
+  always_review: [Scratch, Near-full]

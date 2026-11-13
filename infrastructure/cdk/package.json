@@ -1,0 +1,22 @@
+{
+  "name": "waferguard-foundation",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "npm run build && tsx --test test/*.test.ts",
+    "synth": "cdk synth --strict",
+    "cdk": "cdk"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.276.0",
+    "constructs": "10.5.1",
+    "cdk-nag": "3.0.2"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.1148.0",
+    "typescript": "5.9.3",
+    "tsx": "4.20.6",
+    "@types/node": "24.10.1"
+  }
+}

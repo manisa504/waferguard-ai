@@ -1,0 +1,19 @@
+{
+  "calibration_used": false,
+  "experiment_receipt_sha256": "fdd45271a84cd548e30ea42de2ad87103cb4d85ee000d97360559f6e7a3796e4",
+  "models": {
+    "cnn": {
+      "max_probability_absolute_difference": 0.0,
+      "metrics_identical": true,
+      "samples": 17021
+    },
+    "forest": {
+      "max_probability_absolute_difference": 3.3306690738754696e-16,
+      "metrics_identical": true,
+      "samples": 17021
+    }
+  },
+  "passed": true,
+  "scope": "Frozen-model validation inference replay; full retraining was not repeated",
+  "test_evaluated": false
+}

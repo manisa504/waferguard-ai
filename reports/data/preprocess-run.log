@@ -1,0 +1,45 @@
+Encoding 172,950 labeled records; no labels are invented
+Encoded 25,000 records
+Encoded 50,000 records
+Encoded 75,000 records
+Encoded 100,000 records
+Encoded 125,000 records
+Encoded 150,000 records
+{
+  "identity": {
+    "index_sha256": "d5656cb8ad60ab9a1aaca5e9cdfcf7d0289bbcda65951420473b524bb234d5d6",
+    "archive_sha256": "0e4bd4316a110a04e475a88071f5e1c7fe4303b12ee53c851d2cae4d995a93e2",
+    "version": "categorical-nearest-onehot-v1",
+    "size": 64,
+    "implementation_sha256": "8295860cebc6d619b0e7d6011be28a4efba6979a9c96c03a6162b99643169e9e",
+    "preprocess_sha256": "e5954d5da9a17b44a47dd8dca7bd0402ac2d1cae8f733317c3977dacbc21b59c"
+  },
+  "total": 172950,
+  "label_counts": {
+    "None": 147431,
+    "Loc": 3593,
+    "Edge-Loc": 5189,
+    "Center": 4294,
+    "Edge-Ring": 9680,
+    "Scratch": 1193,
+    "Random": 866,
+    "Near-full": 149,
+    "Donut": 555
+  },
+  "dtype": "uint8",
+  "shape": [
+    172950,
+    64,
+    64
+  ],
+  "channels_at_load": [
+    "outside",
+    "passing",
+    "failing"
+  ],
+  "created_at_utc": "2026-11-11T01:26:07.119350+00:00",
+  "artifacts_sha256": {
+    "states.npy": "5f818a45deaf498a3290b3e02a23280397ffd80fd48103c167ce6b31fc41eeda",
+    "records.jsonl.gz": "0feae07cc3819407da25208e2ae8042366ac291b07a0984f2c44f19b58bdf660"
+  }
+}

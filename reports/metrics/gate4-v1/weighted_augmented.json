@@ -1,0 +1,257 @@
+{
+  "best_epoch": 6,
+  "classes": [
+    "Center",
+    "Donut",
+    "Edge-Loc",
+    "Edge-Ring",
+    "Loc",
+    "Near-full",
+    "None",
+    "Random",
+    "Scratch"
+  ],
+  "created_at_utc": "2026-11-13T00:21:26.193792+00:00",
+  "experiment": {
+    "architecture": "cnn",
+    "augmentation": true,
+    "name": "weighted_augmented",
+    "sampling": false,
+    "weighting": "inverse_sqrt"
+  },
+  "identity": {
+    "config_sha256": "6bf6bd2ec5a2d7c33b5eee9f15ae8c6b9550e0493b65e82abba1b02f433e92f7",
+    "dependency_lock_sha256": "3b58020753969e0aab7e2463e77d347f1bff97b6a402efe580a58b7144c54123",
+    "numpy": "1.26.4",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13",
+    "reproducibility_limit": "Replay is scoped to pinned software, hardware and threads",
+    "revision": "Uncommitted local source; code hashes supplied, no remote publication",
+    "sklearn": "1.9.1",
+    "source_sha256": {
+      "__init__.py": "9f9987cf1670374ff6ae5eb9476a75ef361c495f6da663839d4befade521f9db",
+      "data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/acquire.py": "c5c95a28c93459340215d052a10e4a2396ac5da1ab0dc98d0cf9bb081d436452",
+      "data/dataset.py": "1a9d44c181e6015c52a0299cbcce17c3d86d34a0593ab2b47e19a5a5ccb388b1",
+      "data/index.py": "ca807602cb4e140c26cc0e0f0908a47045d8488136bf58c9904bb03b00025dde",
+      "data/materialize.py": "8295860cebc6d619b0e7d6011be28a4efba6979a9c96c03a6162b99643169e9e",
+      "data/preprocess.py": "e5954d5da9a17b44a47dd8dca7bd0402ac2d1cae8f733317c3977dacbc21b59c",
+      "data/split.py": "4b087dd80569deb2796478424ed3b185afc286c8e02d85bb4e95b322e96826d8",
+      "data/validate.py": "c69aff9d4c1c58278e37922aeab28267d8c8f5600179ae37e56fac1b48b50659",
+      "evaluation/__init__.py": "db38cb4a137f354b0fa90e295f58bc3e36227fe4013b4d75eb341e528776cbc6",
+      "evaluation/metrics.py": "46a688939d342d5b6a3c1c82e5186887fae42973205e2a22cb832ba3a95cd4a8",
+      "features/__init__.py": "b770a61b0ffe4de438b74d9512a009ebc450f94856706bee3ec8c3d1ccf22f3e",
+      "features/wafer_features.py": "f9a9e5d5090b7bc3921577316aea76d8bdca0eb919ade8e9dd13758152ebb447",
+      "models/__init__.py": "38490e1871957d8604d1ccb6ebc358d481b5394a010cd78a6070e6eeb397dc0a",
+      "models/baseline.py": "999106e2ed691d106f326c11cb4b56a96d131b7c5c9d493c3d90a5956940bb15",
+      "models/cnn.py": "4c44a6eefd13604f262c3c43c917e53b53059e3f276543e1437f8e69062a7a70",
+      "models/lite.py": "5fe8878dbf721328a3b1be5279526ff53f072096bae65ea42a75fc92999b39de",
+      "training/__init__.py": "88146de3a52b6e26ec28f3f5e7944c56adf617f39749e7e2bdf99c019247b2ff",
+      "training/advanced.py": "a5cec6de69f2c70b9aeccbbd8417b375c36b152b62e6295c0546b54fede2aa40",
+      "training/experiment.py": "b83d916da3c3f7c8c328b8e978b2825b20b33632a50fcc6801bf69b16ddd9586",
+      "training/train.py": "481ba19a1b03c909cce8f69332e6dc24cde78ae3c89fc0ed05013b38fb87aac5"
+    },
+    "split_report_sha256": "bd156365b9dd2a75b5de04e51125d373a02eaf6d54f439b57a51fb555d946d6a",
+    "torch": "2.15.0"
+  },
+  "loss_weights": [
+    0.546712818458344,
+    1.5683400139585237,
+    0.503091049330127,
+    0.362928572319727,
+    0.5989542069753786,
+    3.0455020189904634,
+    0.0938582890727853,
+    1.2454851737688597,
+    1.0351278571257911
+  ],
+  "model_sha256": "53af471c9afd4cf5de0fd14a02ab9541e80a98e585192ad7547ad4f53d43f770",
+  "parameters": 173441,
+  "predictions_sha256": "d915b36e58809bfa70a39f8e943efaae4252dd5d215d2a11d31c1b23a4e5f820",
+  "train_counts": [
+    2979,
+    362,
+    3518,
+    6760,
+    2482,
+    96,
+    101075,
+    574,
+    831
+  ],
+  "validation": {
+    "accuracy": 0.9629868985371012,
+    "balanced_accuracy": 0.8265139487490868,
+    "classes": [
+      "Center",
+      "Donut",
+      "Edge-Loc",
+      "Edge-Ring",
+      "Loc",
+      "Near-full",
+      "None",
+      "Random",
+      "Scratch"
+    ],
+    "confusion_matrix": [
+      [
+        420,
+        3,
+        1,
+        1,
+        2,
+        0,
+        16,
+        0,
+        1
+      ],
+      [
+        0,
+        60,
+        0,
+        0,
+        0,
+        0,
+        1,
+        4,
+        0
+      ],
+      [
+        5,
+        10,
+        413,
+        25,
+        40,
+        0,
+        56,
+        6,
+        5
+      ],
+      [
+        0,
+        0,
+        19,
+        937,
+        0,
+        0,
+        9,
+        0,
+        0
+      ],
+      [
+        15,
+        5,
+        40,
+        0,
+        275,
+        0,
+        14,
+        3,
+        18
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        15,
+        0,
+        0,
+        0
+      ],
+      [
+        27,
+        2,
+        73,
+        12,
+        49,
+        0,
+        14160,
+        1,
+        68
+      ],
+      [
+        0,
+        0,
+        1,
+        3,
+        0,
+        5,
+        0,
+        84,
+        0
+      ],
+      [
+        2,
+        0,
+        2,
+        0,
+        28,
+        0,
+        58,
+        0,
+        27
+      ]
+    ],
+    "macro_f1": 0.7921021402937417,
+    "macro_precision": 0.7641246026129229,
+    "per_class": {
+      "Center": {
+        "f1-score": 0.9200438116100766,
+        "precision": 0.8955223880597015,
+        "recall": 0.9459459459459459,
+        "support": 444
+      },
+      "Donut": {
+        "f1-score": 0.8275862068965517,
+        "precision": 0.75,
+        "recall": 0.9230769230769231,
+        "support": 65
+      },
+      "Edge-Loc": {
+        "f1-score": 0.7448151487826871,
+        "precision": 0.7522768670309654,
+        "recall": 0.7375,
+        "support": 560
+      },
+      "Edge-Ring": {
+        "f1-score": 0.9644879053010808,
+        "precision": 0.9580777096114519,
+        "recall": 0.9709844559585492,
+        "support": 965
+      },
+      "Loc": {
+        "f1-score": 0.7198952879581152,
+        "precision": 0.6979695431472082,
+        "recall": 0.7432432432432432,
+        "support": 370
+      },
+      "Near-full": {
+        "f1-score": 0.8571428571428571,
+        "precision": 0.75,
+        "recall": 1.0,
+        "support": 15
+      },
+      "None": {
+        "f1-score": 0.9865533337978123,
+        "precision": 0.9892413022216012,
+        "recall": 0.9838799332962757,
+        "support": 14392
+      },
+      "Random": {
+        "f1-score": 0.8795811518324608,
+        "precision": 0.8571428571428571,
+        "recall": 0.9032258064516129,
+        "support": 93
+      },
+      "Scratch": {
+        "f1-score": 0.2288135593220339,
+        "precision": 0.226890756302521,
+        "recall": 0.23076923076923078,
+        "support": 117
+      }
+    },
+    "samples": 17021
+  }
+}

@@ -1,0 +1,2 @@
+Evaluating held-out test against frozen model/calibration/policy
+{"test_macro_f1": 0.7265032898523219, "scratch_recall": 0.5555555555555556, "policy_retuned_on_test": false}

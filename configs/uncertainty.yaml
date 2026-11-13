@@ -1,0 +1,10 @@
+minimum_macro_f1: 0.75
+minimum_scratch_recall: 0.60
+bootstrap_repetitions: 200
+seed: 123
+policy:
+  target_accepted_error: 0.01
+  maximum_wilson_upper: 0.02
+  minimum_accepted: 500
+  minimum_margin: 0.20
+  always_review: [Scratch, Near-full]

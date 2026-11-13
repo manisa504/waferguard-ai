@@ -1,0 +1,25 @@
+Balanced epoch 1: batch 200
+Balanced epoch 1: batch 400
+Balanced epoch 1: macro-F1=0.7562, Scratch recall=0.7607
+Balanced epoch 2: batch 200
+Balanced epoch 2: batch 400
+Balanced epoch 2: macro-F1=0.7881, Scratch recall=0.7521
+Balanced epoch 3: batch 200
+Balanced epoch 3: batch 400
+Balanced epoch 3: macro-F1=0.7724, Scratch recall=0.8034
+Balanced epoch 4: batch 200
+Balanced epoch 4: batch 400
+Balanced epoch 4: macro-F1=0.7729, Scratch recall=0.7009
+Balanced epoch 5: batch 200
+Balanced epoch 5: batch 400
+Balanced epoch 5: macro-F1=0.7638, Scratch recall=0.7521
+Balanced epoch 6: batch 200
+Balanced epoch 6: batch 400
+Balanced epoch 6: macro-F1=0.7799, Scratch recall=0.6667
+Balanced epoch 7: batch 200
+Balanced epoch 7: batch 400
+Balanced epoch 7: macro-F1=0.7606, Scratch recall=0.7179
+Balanced epoch 8: batch 200
+Balanced epoch 8: batch 400
+Balanced epoch 8: macro-F1=0.7771, Scratch recall=0.8034
+{"best_epoch": 2, "macro_f1": 0.7880814246731186, "test_evaluated": false}

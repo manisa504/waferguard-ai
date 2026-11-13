@@ -1,0 +1,54 @@
+Verifying audited train and validation artifacts
+majority: validation macro-F1=0.1018, balanced accuracy=0.1111
+train: extracted 25,000 feature vectors
+train: extracted 50,000 feature vectors
+train: extracted 75,000 feature vectors
+train: extracted 100,000 feature vectors
+Fitting unweighted forest on all 118,677 training records
+forest: validation macro-F1=0.7166, balanced accuracy=0.6629
+CNN epoch 1: 25,856/118,677 records
+CNN epoch 1: 51,456/118,677 records
+CNN epoch 1: 77,056/118,677 records
+CNN epoch 1: 102,656/118,677 records
+CNN epoch 1: loss=0.3585; validation macro-F1=0.6585; seconds=57.9
+CNN epoch 2: 25,856/118,677 records
+CNN epoch 2: 51,456/118,677 records
+CNN epoch 2: 77,056/118,677 records
+CNN epoch 2: 102,656/118,677 records
+CNN epoch 2: loss=0.1595; validation macro-F1=0.7099; seconds=65.2
+CNN epoch 3: 25,856/118,677 records
+CNN epoch 3: 51,456/118,677 records
+CNN epoch 3: 77,056/118,677 records
+CNN epoch 3: 102,656/118,677 records
+CNN epoch 3: loss=0.1309; validation macro-F1=0.7066; seconds=69.9
+CNN epoch 4: 25,856/118,677 records
+CNN epoch 4: 51,456/118,677 records
+CNN epoch 4: 77,056/118,677 records
+CNN epoch 4: 102,656/118,677 records
+CNN epoch 4: loss=0.1169; validation macro-F1=0.7707; seconds=56.2
+CNN epoch 5: 25,856/118,677 records
+CNN epoch 5: 51,456/118,677 records
+CNN epoch 5: 77,056/118,677 records
+CNN epoch 5: 102,656/118,677 records
+CNN epoch 5: loss=0.1078; validation macro-F1=0.7284; seconds=56.3
+CNN epoch 6: 25,856/118,677 records
+CNN epoch 6: 51,456/118,677 records
+CNN epoch 6: 77,056/118,677 records
+CNN epoch 6: 102,656/118,677 records
+CNN epoch 6: loss=0.1009; validation macro-F1=0.7548; seconds=55.9
+CNN epoch 7: 25,856/118,677 records
+CNN epoch 7: 51,456/118,677 records
+CNN epoch 7: 77,056/118,677 records
+CNN epoch 7: 102,656/118,677 records
+CNN epoch 7: loss=0.0944; validation macro-F1=0.7696; seconds=56.4
+CNN epoch 8: 25,856/118,677 records
+CNN epoch 8: 51,456/118,677 records
+CNN epoch 8: 77,056/118,677 records
+CNN epoch 8: 102,656/118,677 records
+CNN epoch 8: loss=0.0886; validation macro-F1=0.7521; seconds=55.8
+cnn: validation macro-F1=0.7707, balanced accuracy=0.7616
+{
+  "status": "completed",
+  "validation_selected_model": "cnn",
+  "test_evaluated": false
+}

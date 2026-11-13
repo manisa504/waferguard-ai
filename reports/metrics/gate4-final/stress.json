@@ -1,0 +1,20 @@
+{
+  "invalid_inputs": "Empty/all-outside/illegal states rejected by inference contract",
+  "results": {
+    "die_state_noise_5pct": {
+      "labels": "No ground-truth labels asserted for synthetic/altered inputs",
+      "mean_confidence": 0.8849473108608609,
+      "ood_flag_rate": 0.0,
+      "review_rate": 0.41796875,
+      "samples": 256
+    },
+    "synthetic_random_ood": {
+      "labels": "No ground-truth labels asserted for synthetic/altered inputs",
+      "mean_confidence": 0.9999999266956807,
+      "ood_flag_rate": 1.0,
+      "review_rate": 1.0,
+      "samples": 256
+    }
+  },
+  "scope": "Limited engineered stress, not universal OOD proof"
+}

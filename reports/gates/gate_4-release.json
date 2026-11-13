@@ -1,0 +1,14 @@
+{
+  "automatic_acceptance_authorized": false,
+  "decision": "PROMOTION_BLOCKED",
+  "failures": [
+    "test: macro-F1 below declared minimum",
+    "test: Scratch recall below declared minimum",
+    "test: critical-class cases were falsely accepted"
+  ],
+  "frozen_manifest_sha256": "5e9e51a12b6062fe4fc17867eba88358ea0d87afd67a0992bdad9dc138f37a68",
+  "qualified_for_promotion": false,
+  "scope": "Technical benchmark gate; no certification or physical release authorization",
+  "test_report_sha256": "0c4602d3e315d5e5575ceb50add487297a96047338ecbeeb0aee93cc67b2a5a1",
+  "thresholds_retuned": false
+}

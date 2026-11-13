@@ -1,0 +1,96 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "aws-cdk-lib": {
+      "name": "aws-cdk-lib",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "cdk-nag"
+      ],
+      "range": ">=2.240.0",
+      "nodes": [
+        "node_modules/aws-cdk-lib"
+      ],
+      "fixAvailable": {
+        "name": "aws-cdk-lib",
+        "version": "2.239.0",
+        "isSemVerMajor": true
+      }
+    },
+    "cdk-nag": {
+      "name": "cdk-nag",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "aws-cdk-lib"
+      ],
+      "effects": [],
+      "range": ">=3.0.0",
+      "nodes": [
+        "node_modules/cdk-nag"
+      ],
+      "fixAvailable": {
+        "name": "cdk-nag",
+        "version": "2.38.2",
+        "isSemVerMajor": true
+      }
+    },
+    "minimatch": {
+      "name": "minimatch",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1244623,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-405"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=7.0.0 <11.0.1"
+        }
+      ],
+      "effects": [
+        "aws-cdk-lib"
+      ],
+      "range": "7.0.0 - 11.0.0",
+      "nodes": [
+        "node_modules/aws-cdk-lib/node_modules/minimatch"
+      ],
+      "fixAvailable": {
+        "name": "aws-cdk-lib",
+        "version": "2.239.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 3,
+      "high": 0,
+      "critical": 0,
+      "total": 3
+    },
+    "dependencies": {
+      "prod": 26,
+      "dev": 35,
+      "optional": 27,
+      "peer": 2,
+      "peerOptional": 0,
+      "total": 62
+    }
+  }
+}

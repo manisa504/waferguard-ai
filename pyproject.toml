@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "waferguard-ai"
+version = "0.1.0"
+description = "Uncertainty-aware wafer classification: dataset and infrastructure foundation"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy==1.26.4", "pandas==2.2.3", "PyYAML==6.0.2"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5", "ruff==0.11.13"]
+ml = [
+    "matplotlib==3.11.2",
+    "scikit-learn==1.9.1",
+    "torch==2.15.0",
+]
+api = [
+    "boto3==1.44.1",
+    "fastapi==0.162.5",
+    "httpx==0.28.1",
+    "mangum==0.22.0",
+    "pyjwt[crypto]==2.15.1",
+    "uvicorn==0.54.0",
+]
+
+[project.scripts]
+waferguard-acquire = "waferguard.data.acquire:main"
+waferguard-profile = "waferguard.data.validate:main"
+waferguard-index = "waferguard.data.index:main"
+waferguard-preprocess = "waferguard.data.materialize:main"
+waferguard-split = "waferguard.data.split:main"
+waferguard-train = "waferguard.training.train:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/waferguard"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]

@@ -1,0 +1,9 @@
+# Inactive design configuration. Thresholds require validation-only selection at Gate 4.
+status: blocked_gate_4_release_criteria
+model_version: null
+calibration_version: null
+auto_accept_enabled: false
+missing_evidence_action: review
+invalid_input_action: reject
+review_required_classes: [Near-full, Scratch]
+confidence_thresholds: null

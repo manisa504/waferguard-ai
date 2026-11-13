@@ -1,0 +1,18 @@
+
+> waferguard-foundation@0.1.0 test
+> npm run build && tsx --test test/*.test.ts
+
+
+> waferguard-foundation@0.1.0 build
+> tsc --noEmit
+
+✔ private retained versioned storage, TLS and active/forecast budget warnings (536.569083ms)
+✔ security checker validates the foundation and detects an insecure control bucket (590.540959ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1303.974791

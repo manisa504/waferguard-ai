@@ -1,0 +1,5 @@
+{
+  "status": "completed",
+  "validation_selected_model": "cnn",
+  "test_evaluated": false
+}

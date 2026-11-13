@@ -1,0 +1,8 @@
+classification_status: gate_4_frozen_test_measured
+calibration_status: temperature_fitted_on_reserved_calibration
+held_out_test_status: evaluated_frozen_candidate_no_retuning
+primary_metrics: [macro_f1, per_class_recall]
+additional_metrics: [balanced_accuracy, confusion_matrix, ece, brier, selective_risk]
+threshold_selection_split: validation
+held_out_test_use: final_evaluation_only
+promotion_enabled: false
