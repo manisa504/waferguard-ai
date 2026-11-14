@@ -1,62 +1,45 @@
-# WaferGuard — high-level architecture
+# WaferGuard — local app architecture
 
-[Open the diagram page](architecture.html) · [Full-resolution PNG](architecture-target.drawio.png) ·
-[Scalable SVG](architecture-target.drawio.svg) · [Editable draw.io source](architecture.drawio)
+[Simple diagram page](architecture.html) · [Local app](app/) · [Screenshots](screenshots.html)
 
-The first tab is the high-level target. The second tab shows the authored foundation.
-Neither view describes a deployed AWS application. The public portfolio is on GitHub Pages.
-Regional AWS services are planned for Ohio (`us-east-2`); CloudFront is global.
+## The current local app
 
-## Main user flow — planned
+1. **Committed reports** supply aggregate measured model results and the failed qualification.
+   The browser reads the JSON reports; it does not rerun evaluation or change thresholds.
+2. **Grid input** is either a deterministic, labeled synthetic example or a user-uploaded
+   rectangular categorical JSON grid. Input validation checks size, state values, shape,
+   and presence of inside-wafer cells. Grids stay in memory and are never uploaded.
+3. **Browser workspace** displays the evidence, draws the categorical grid, counts its states,
+   and lets a researcher add a summary to the notebook. No model executes.
+4. **Browser notebook** persists summaries and observations in localStorage. It contains
+   no raw grid arrays and offers filtering, JSON export, and clearing. It is not a shared,
+   authenticated, or tamper-proof review service and does not authorize dispositions.
 
-1. **Access:** an engineer or reviewer opens the web workspace, submits a map, and inspects
-   evidence. The target serves frontend assets from private S3 through CloudFront.
-2. **Analyze:** API Gateway and Lambda provide the prediction API. A versioned model and
-   calibration transform supply class and confidence evidence; deterministic policy checks
-   remain separate from reviewer authority.
-3. **Decide:** an authorized reviewer records a decision through the application. Cognito
-   supplies identity; application logic verifies authorization and current case versions.
-   Step Functions Standard coordinates the planned pause/resume workflow. It does not
-   itself perform the human judgment or replace the API's authorization checks.
-4. **Record:** DynamoDB is the target store for case state, versions, and audit events.
-   Conditional transitions, atomic state/audit/outbox writes, single-use decisions, and
-   callback reconciliation still need complete end-to-end verification.
+![Local architecture](diagrams/local-app.svg)
 
-The arrows show the main business sequence, not every network call. Reviewer actions
-return through the authenticated API; the browser never receives workflow callback tokens
-or direct database access. No physical wafer release or MES integration is supported.
+[Explore](diagrams/local-app.html) · [PNG](diagrams/local-app.png) ·
+[Editable specification](diagrams/local-app.json).
 
-## Supporting capabilities
+## The research decision
 
-| Capability | Target service | Purpose and boundary |
-|---|---|---|
-| Reviewer identity | Cognito | Verify identity before server-side authorization |
-| Versioned model evidence | S3 | Store model/calibration artifacts; serving requires release qualification |
-| Operational visibility | CloudWatch | Future logs, metrics, and alarms; no live workload evidence yet |
-| Cost warnings | AWS Budgets | Separate budget alerts; warnings do not cap spending |
+Audit data → separate evidence roles → freeze and evaluate → hold release.
+The frozen candidate failed its declared criteria. The observed test must not be reused
+for tuning, and operational automatic acceptance remains disabled.
 
-Training and evaluation run locally today. The high-level diagram omits training jobs,
-queues, retry plumbing, and network details to keep the user journey readable. Those
-services remain future implementation work, not newly authorized architecture changes.
+![Research decision flow](diagrams/research-flow.svg)
 
-## Current scope
+[Explore](diagrams/research-flow.html) · [PNG](diagrams/research-flow.png) ·
+[Editable specification](diagrams/research-flow.json).
 
-- **Implemented locally:** audited data, grouped partitions, baselines, imbalance experiments,
-  calibration, frozen test evaluation, and a failed release qualification.
-- **Authored infrastructure:** three private versioned S3 buckets for raw data, artifacts,
-  and access logs; retention and budget warning definitions. No deployment has occurred.
-- **Draft:** API and review modules. Gate 5 is not passed; there is no live reviewer service.
-- **Public hosting:** static project and campaign pages on GitHub Pages, separate from AWS.
-- **Release decision:** test macro-F1 0.7265, Scratch recall 55.6%, and four critical false
-  accepts. Model promotion and operational automatic acceptance remain blocked.
+## Scope and evidence
 
-See the [Gate 4 report](../reports/gates/gate_4.md),
-[model card](model_card.md), [review ADR](adr/0003-review-and-model-promotion.md), and
-[remaining AWS deployment work](PROJECT_STATUS_AND_AWS_PLAN.md).
+See the [local app guide](LOCAL_APP.md), [screenshot receipt](screenshots/receipt.json),
+[diagram verification](diagrams/verification.json), and [Gate 4 report](../reports/gates/gate_4.md).
+Two standalone architecture viewers passed nine artifact checks each, with zero composition
+errors or warnings, automated four-viewport browser checks, and light/dark visual review.
+Static PNG/SVG exports accompany the same typed specifications. The unlabelled research
+edges intentionally avoid repeating the ordered steps; they carry no extra protocol facts.
 
-## Rebuild the diagram
-
-`python3 scripts/architecture.py` generates both editable tabs. Export tab 1 as
-`architecture-target.drawio.png` and `architecture-target.drawio.svg`; export tab 2 as
-`architecture.drawio.png`. The draw.io CLI uses **1-based** page indexes. Review exported
-images after changes for label clipping, icon rendering, and connector overlap.
+The earlier AWS target is preserved in [draw.io source](architecture.drawio) and
+[the deferred deployment plan](PROJECT_STATUS_AND_AWS_PLAN.md) as historical planning.
+It is not required to run this app. No AWS deployment or model promotion was performed.

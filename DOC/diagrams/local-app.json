@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "WaferGuard \u2014 local app",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "viewBox": [
+      1120,
+      640
+    ]
+  },
+  "components": [
+    {
+      "id": "reports",
+      "type": "external",
+      "label": "Research reports",
+      "sublabel": "Measured aggregates",
+      "pos": [
+        70,
+        190
+      ],
+      "size": [
+        240,
+        94
+      ]
+    },
+    {
+      "id": "workspace",
+      "type": "frontend",
+      "label": "Local workspace",
+      "sublabel": "Results, grid, review",
+      "pos": [
+        440,
+        190
+      ],
+      "size": [
+        240,
+        94
+      ]
+    },
+    {
+      "id": "notebook",
+      "type": "database",
+      "label": "Browser notebook",
+      "sublabel": "Local review notes",
+      "pos": [
+        810,
+        190
+      ],
+      "size": [
+        240,
+        94
+      ]
+    },
+    {
+      "id": "grid",
+      "type": "external",
+      "label": "Grid input",
+      "sublabel": "JSON or synthetic example",
+      "pos": [
+        440,
+        438
+      ],
+      "size": [
+        240,
+        94
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "read-reports",
+      "from": "reports",
+      "to": "workspace",
+      "label": "read only"
+    },
+    {
+      "id": "save-notes",
+      "from": "workspace",
+      "to": "notebook",
+      "label": "local notes"
+    },
+    {
+      "id": "inspect-grid",
+      "from": "grid",
+      "to": "workspace",
+      "label": "validate",
+      "fromSide": "top",
+      "toSide": "bottom"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Evidence stays separate",
+      "items": [
+        "Results are read from committed reports.",
+        "Imported grids stay in the browser."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Manual research only",
+      "items": [
+        "No model execution or automatic acceptance.",
+        "Review notes are not production approvals."
+      ]
+    }
+  ]
+}

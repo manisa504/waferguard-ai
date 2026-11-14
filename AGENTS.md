@@ -2,6 +2,9 @@
 Use `us-east-2` for CDK, CLI, SDK and future frontend configuration; CLI profile `awsnew`.
 Check AWS Projects home Region before interpreting regional SCP denials.
 Follow WAFERGUARD_PROJECT_OUTLINE.md. Stop for review between development gates.
+Latest scope: AWS deployment is deferred. Build the local browser research app,
+plain diagrams, and actual screenshots for the README and GitHub Pages.
+Browser notebook observations do not pass Gate 5 or authorize model/wafer release.
 No fabricated data, model metrics or deployment evidence. Do not commit raw datasets.
 
 Do not use personal names in project content, attribution, diagrams or resource tags.

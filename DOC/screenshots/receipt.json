@@ -1,0 +1,65 @@
+{
+  "capturedAt": "2026-11-14T23:05:18.649Z",
+  "scope": "Actual Chrome captures of the local browser research app. Inspector and notebook use labeled deterministic synthetic inputs; dashboard uses committed aggregate metrics. No model inference or production approval.",
+  "checks": [
+    "dashboard displays committed frozen-test macro-F1",
+    "all nine measured class recalls render",
+    "all three failed qualification criteria remain visible",
+    "overview fits viewport width",
+    "example provenance is visible",
+    "inspector fits viewport width",
+    "grid supports keyboard cell inspection",
+    "example selector changes the displayed grid",
+    "notebook storage excludes raw grid arrays",
+    "notebook fits viewport width",
+    "research notes survive reload",
+    "pending filter excludes recorded notes",
+    "all-outside grid rejected",
+    "valid uploaded JSON grid renders",
+    "uploaded grid is distinguished from synthetic examples",
+    "ragged uploaded grid rejected",
+    "inspector-mobile fits viewport width",
+    "overview-mobile fits viewport width",
+    "app makes no external network requests",
+    "app makes no inference or approval API requests",
+    "no uncaught browser exceptions"
+  ],
+  "captures": [
+    {
+      "file": "overview.png",
+      "width": 1440,
+      "height": 1080,
+      "sha256": "4b74b9a6aea9d9574daff34bad8adf06584d3ac8d8dbdb8707b4aa9290531262"
+    },
+    {
+      "file": "inspector.png",
+      "width": 1440,
+      "height": 1080,
+      "sha256": "28b252eeaaf6195d28feaa9b71577e55a433c714de33c900017b74a0c2b38dc5"
+    },
+    {
+      "file": "notebook.png",
+      "width": 1440,
+      "height": 1080,
+      "sha256": "109cf66d1b293378e3c73b81a8118c1e0dad92c3d7a0a2759189b70999bf52a6"
+    },
+    {
+      "file": "inspector-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "ce54e1684d9f22f956e6794e1a40df487f0cac5d466c1d366a44252e9e4dd5f2"
+    },
+    {
+      "file": "overview-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "d6d04e8877ba06416ea835b92ab61f560219ba4ff3c408fff129acde5fae6a48"
+    }
+  ],
+  "sources": {
+    "DOC/app/index.html": "98bf14940a2ffe26d17a3666815b2eff920a1140581ef6631ff20e6b994e386e",
+    "DOC/app/app.css": "3b9a5aaef670f03e74caf46960bdf2abf5daa5253a710525bfa034a82215f1e3",
+    "DOC/app/app.js": "34899e70d204e6dcb5dddc5f7fd40ee161517a7e8878751a33ced89b8a9fd195",
+    "DOC/app/core.mjs": "de76abb8c3921f7d41624c89ff1d2262eda27ab13da504eb8481ece13151b67c"
+  }
+}

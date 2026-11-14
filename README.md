@@ -1,26 +1,83 @@
 # WaferGuard AI
 
-Uncertainty-aware semiconductor wafer defect detection using real WM-811K data,
-calibrated computer vision, AWS MLOps, and auditable human review.
+A local semiconductor wafer research workspace with audited WM-811K evidence,
+measured model results, categorical-grid inspection, and browser-only research notes.
 
 **Owner:** WaferGuard contributors · **Region:** `us-east-2` · **CLI profile:** `awsnew`
 
 [Project website](https://manisa504.github.io/waferguard-ai/DOC/) ·
 [Campaign studio](https://manisa504.github.io/waferguard-ai/DOC/campaign.html) ·
-[High-level architecture](https://manisa504.github.io/waferguard-ai/DOC/architecture.html) ·
+[Simple diagrams](https://manisa504.github.io/waferguard-ai/DOC/architecture.html) ·
+[Open the research app](https://manisa504.github.io/waferguard-ai/DOC/app/) ·
 [Downloadable campaign brief](DOC/CAMPAIGN_BRIEF.md).
 
 The campaign includes 12 daily post drafts, four carousel outlines, a 90-second video
 script, and a case-study brief. The actual video and Vercel URL are pending. The static
 portfolio is separate from the research application's AWS deployment and model release.
 
+## Local app and screenshots
+
+Run the app without cloud credentials or package installation:
+
+```bash
+./scripts/run_local.sh
+# Open http://127.0.0.1:8768/DOC/app/
+```
+
+Python 3.12+ serves an allowlist of public pages and aggregate reports on loopback.
+The [same browser app is available on GitHub Pages](https://manisa504.github.io/waferguard-ai/DOC/app/).
+
+- **Evidence overview:** reads actual frozen-test metrics and qualification from committed reports.
+- **Grid inspector:** validates JSON categorical grids, visualizes die states, and supplies
+  explicitly labeled deterministic synthetic examples. Uploaded grids stay in browser memory.
+- **Research notebook:** saves summaries and observations in local browser storage, filters
+  cases, and exports notes. It stores no raw grid arrays and creates no production approvals.
+- **Simple diagrams:** show the local app and research decision flow without cloud-service icons.
+
+These are actual Chrome screenshots captured from the running local app on November 14,
+2026. The inspector and notebook show synthetic UI examples, not real dataset samples
+or model predictions. The dashboard shows real aggregate evaluation results. This app
+performs **no model inference** and does not change the failed model qualification.
+
+### Evidence overview
+
+![Running local app: measured results and failed release qualification](DOC/screenshots/overview.png)
+
+### Grid inspector — synthetic example
+
+![Running local grid inspector with an explicitly labeled synthetic line pattern](DOC/screenshots/inspector.png)
+
+### Browser research notebook
+
+![Running local notebook with a saved research observation for a synthetic example](DOC/screenshots/notebook.png)
+
+[All screenshots, including mobile views](https://manisa504.github.io/waferguard-ai/DOC/screenshots.html) ·
+[Capture receipt and source hashes](DOC/screenshots/receipt.json) · [App guide](DOC/LOCAL_APP.md).
+
+## Simple diagrams
+
+### How the local app works
+
+![Read-only reports and in-memory grid input feed a browser workspace, with summaries stored locally](DOC/diagrams/local-app.png)
+
+[Explore the local-app diagram](https://manisa504.github.io/waferguard-ai/DOC/diagrams/local-app.html) ·
+[SVG](DOC/diagrams/local-app.svg) · [Editable specification](DOC/diagrams/local-app.json).
+
+### How the research reached its decision
+
+![Audit data, separate evidence, freeze and evaluate, then hold release because qualification failed](DOC/diagrams/research-flow.png)
+
+[Explore the research flow](https://manisa504.github.io/waferguard-ai/DOC/diagrams/research-flow.html) ·
+[SVG](DOC/diagrams/research-flow.svg) · [Editable specification](DOC/diagrams/research-flow.json).
+
 ## Current state
 
 Gate 4 imbalance/calibration/robustness analysis is complete, but **model promotion is
 blocked**. The frozen candidate scored **test macro-F1 0.7265**, **Scratch recall 55.6%**
 and **Scratch precision 9.9%**. Its unchanged candidate policy falsely accepted four
-true Scratch cases. Automatic acceptance stays disabled. No model, API or frontend is
-deployed. Human quality disposition remains simulated; no physical release is authorized.
+true Scratch cases. Automatic acceptance stays disabled. No model or API is deployed. The browser research interface runs locally and on GitHub
+Pages; it does not run inference or provide an operational reviewer service.
+Human quality disposition remains simulated; no physical release is authorized.
 
 [Gate 4 results and failure analysis](DOC/uncertainty_results.md) ·
 [Current model card](DOC/model_card.md) · [Gate 4 report](reports/gates/gate_4.md).

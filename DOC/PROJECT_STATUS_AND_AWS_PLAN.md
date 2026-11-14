@@ -1,8 +1,14 @@
-# WaferGuard — completed work and AWS deployment plan
+# WaferGuard — completed work and deferred AWS deployment plan
 
 Status checked November 13, 2026. No WaferGuard resources have been deployed to AWS.
 The authenticated CLI profile is awsnew; default workload Region is us-east-2.
 Individual gate reviews remain required.
+
+Update November 14: AWS deployment is deferred at the user's request. A working
+browser research interface now provides measured results, local JSON-grid inspection,
+and a browser-only notebook. Actual screenshots and simple diagrams are published
+in the README and on GitHub Pages. See [local app guide](LOCAL_APP.md). This does
+not enable inference, pass Gate 5, or qualify the model.
 
 ## Completed locally
 

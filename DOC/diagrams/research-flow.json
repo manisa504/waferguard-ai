@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "WaferGuard \u2014 research decision flow",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "viewBox": [
+      1120,
+      640
+    ]
+  },
+  "components": [
+    {
+      "id": "audit",
+      "type": "external",
+      "label": "Audit data",
+      "sublabel": "Provenance + duplicates",
+      "pos": [
+        35,
+        260
+      ],
+      "size": [
+        210,
+        94
+      ]
+    },
+    {
+      "id": "partition",
+      "type": "backend",
+      "label": "Separate evidence",
+      "sublabel": "Train / validate / calibrate",
+      "pos": [
+        315,
+        260
+      ],
+      "size": [
+        210,
+        94
+      ]
+    },
+    {
+      "id": "evaluate",
+      "type": "backend",
+      "label": "Freeze and evaluate",
+      "sublabel": "Observed test results",
+      "pos": [
+        595,
+        260
+      ],
+      "size": [
+        210,
+        94
+      ]
+    },
+    {
+      "id": "decision",
+      "type": "security",
+      "label": "Hold release",
+      "sublabel": "Qualification failed",
+      "pos": [
+        875,
+        260
+      ],
+      "size": [
+        210,
+        94
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "audit-partition",
+      "from": "audit",
+      "to": "partition"
+    },
+    {
+      "id": "partition-evaluate",
+      "from": "partition",
+      "to": "evaluate"
+    },
+    {
+      "id": "evaluate-decision",
+      "from": "evaluate",
+      "to": "decision"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "What was measured",
+      "items": [
+        "Test macro-F1: 0.7265.",
+        "Scratch recall: 55.6%."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "What was decided",
+      "items": [
+        "Four critical false accepts.",
+        "Promotion and automatic acceptance blocked."
+      ]
+    }
+  ]
+}

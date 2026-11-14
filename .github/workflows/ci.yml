@@ -43,3 +43,14 @@ jobs:
       - run: uv sync --extra dev --extra ml --frozen
       - run: uv run --frozen --extra dev --extra ml pytest -q tests/ml
       # Linux torch uses the pinned CPU index; CI never trains on or downloads real wafer data.
+
+  browser-app-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check DOC/app/app.js
+      - run: node --check DOC/app/core.mjs
+      - run: node --test tests/browser/core.test.mjs

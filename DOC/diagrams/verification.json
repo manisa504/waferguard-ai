@@ -1,0 +1,24 @@
+[
+  {
+    "diagram": "local-app",
+    "specification_sha256": "f2b7c7ac1842a7ef6531b7452aa372904a9444105942d64e210128bd39f57ad9",
+    "artifact_sha256": "8e63dd90724e0229d9bc4a4710e8592154b068220b7c47a72467a336adcf208e",
+    "artifact_checks": 9,
+    "composition_errors": 0,
+    "composition_warnings": 0,
+    "browser_evidence": "pass",
+    "visual_review": "passed; light and dark 2048x1320 captures inspected",
+    "kind": "architecture"
+  },
+  {
+    "diagram": "research-flow",
+    "specification_sha256": "922e012479fd8673ea78f0cf596597071a2466862b9b6de278b21870cb2780de",
+    "artifact_sha256": "7e79d187b691a06d6b402cf72c0e083e35b135d08f19099a6c4ee08870820cef",
+    "artifact_checks": 9,
+    "composition_errors": 0,
+    "composition_warnings": 0,
+    "browser_evidence": "pass",
+    "visual_review": "passed; light and dark 2048x1320 captures inspected",
+    "kind": "architecture"
+  }
+]
